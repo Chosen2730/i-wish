@@ -1,15 +1,31 @@
-import React from "react";
+import { useState } from "react";
 import rev from "../../images/rev.png";
 import del from "../../images/del.png";
 import cart from "../../images/cart.png";
 import chart1 from "../../images/1.JPG";
 import chart2 from "../../images/2.JPG";
 import { store } from "../../data";
+import Product from "./product";
 
-const dash = () => {
+const Dash = () => {
+  const [items, setItems] = useState({
+    title: "",
+    price: "",
+    img: "",
+    weight: "",
+    qty: "",
+    color: "",
+    customer: "",
+    vendor: "",
+    address: "",
+    orderStatus: "",
+    orderDate: "",
+    deliveryDate: "",
+  });
+  const [details, setDetails] = useState(false);
   return (
     <>
-      <main className='m-8 '>
+      <main className='m-8'>
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-3'>
           <div className='bg-[#080016] text-gray-100 sm:p-4 p-10 rounded-md relative'>
             <h2 className='text-base font-semibold'>Total Orders</h2>
@@ -115,53 +131,69 @@ const dash = () => {
             <h4>More</h4>
           </div>
           <div>
-            {store.map(
-              (
-                {
-                  title,
-                  img,
-                  price,
-                  weight,
-                  qty,
-                  color,
-                  customer,
-                  vendor,
-                  address,
-                  orderStatus,
-                  orderDate,
-                  deliveryDate,
-                },
-                i
-              ) => {
-                return (
-                  <div
-                    key={i}
-                    className='text-xs my-2 grid grid-cols-4 lg:grid-cols-6 items-center gap-4 p-4'
-                  >
-                    <div className='flex items-center space-x-2'>
-                      <img className='w-10 object-contain' src={img} alt='' />
-                      <h4 className='font-semibold capitalize hidden lg:block'>
-                        {title}
-                      </h4>
-                    </div>
-                    <h4 className='hidden lg:block'>R00{i}T</h4>
-                    <h4 className='hidden lg:block'>{orderDate}</h4>
-                    <h4>
-                      <del>N</del> {price}
+            {store.map((product, i) => {
+              const {
+                title,
+                img,
+                price,
+                weight,
+                qty,
+                color,
+                customer,
+                vendor,
+                address,
+                orderStatus,
+                orderDate,
+                deliveryDate,
+              } = product;
+              return (
+                <div
+                  key={i}
+                  className='text-xs my-2 grid grid-cols-4 lg:grid-cols-6 items-center gap-4 p-4'
+                >
+                  <div className='flex items-center space-x-2'>
+                    <img className='w-10 object-contain' src={img} alt='' />
+                    <h4 className='font-semibold capitalize hidden lg:block'>
+                      {title}
                     </h4>
-                    <h4 className=''>Pending</h4>
-                    <button className='p-1 border-2 border-[#7805A7] text-[#7805A7] rounded-md '>
-                      Details
-                    </button>
                   </div>
-                );
-              }
-            )}
+                  <h4 className='hidden lg:block'>R00{i}T</h4>
+                  <h4 className='hidden lg:block'>{orderDate}</h4>
+                  <h4>
+                    <del>N</del> {price}
+                  </h4>
+                  <h4 className=''>Pending</h4>
+                  <button
+                    className='p-1 border-2 border-[#7805A7] text-[#7805A7] rounded-md'
+                    onClick={() => {
+                      setItems({
+                        title,
+                        img,
+                        price,
+                        weight,
+                        qty,
+                        color,
+                        customer,
+                        vendor,
+                        address,
+                        orderStatus,
+                        orderDate,
+                        deliveryDate,
+                      });
+                      setDetails(true);
+                    }}
+                  >
+                    Details
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
+        <Product items={items} details={details} setDetails={setDetails} />
       </main>
     </>
   );
 };
 
-export default dash;
+export default Dash;

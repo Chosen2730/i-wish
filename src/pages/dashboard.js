@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../components/sidebar";
 import Navbar from "../components/navbar";
-import Main from "../components/main";
+import Main from "../components/main/index.js";
 
 const Dashboard = () => {
   const [page, setPage] = React.useState({

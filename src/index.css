@@ -10,3 +10,11 @@ body {
 del {
   text-decoration-style: double;
 }
+.overflow {
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.overflow::-webkit-scrollbar {
+  display: none;
+}
