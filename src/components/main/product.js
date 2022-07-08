@@ -1,7 +1,9 @@
 import React from "react";
 import close from "../../images/close.png";
+import { useGlobalContext } from "../../context";
 
-const product = ({ items, details, setDetails }) => {
+const Product = () => {
+  const { items, details, setDetails } = useGlobalContext();
   const {
     title,
     img,
@@ -12,7 +14,6 @@ const product = ({ items, details, setDetails }) => {
     customer,
     vendor,
     address,
-    orderStatus,
     orderDate,
     deliveryDate,
   } = items;
@@ -90,4 +91,4 @@ const product = ({ items, details, setDetails }) => {
   );
 };
 
-export default product;
+export default Product;

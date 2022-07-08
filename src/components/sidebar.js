@@ -6,6 +6,7 @@ import cat from "../images/Vector-7.png";
 import not from "../images/Vector-8.png";
 import ven from "../images/Vector-9.png";
 import user from "../images/Vector-10.png";
+import { useGlobalContext } from "../context";
 
 const sideMenus = [
   { name: "dashboard", img: dash },
@@ -17,7 +18,7 @@ const sideMenus = [
 ];
 
 const Sidebar = () => {
-  const [base, setBase] = React.useState(0);
+  const { base, setBase } = useGlobalContext();
   return (
     <aside className='bg-[#080016] w-full sm:w-[30%] p-4 sm:p-8 sm:min-h-screen fixed bottom-0 sm:top-0  z-10 overflow'>
       <img className='hidden sm:block w-20 mb-20' src={logo} alt='logo' />
