@@ -6,7 +6,7 @@ import not from "../images/notify.png";
 const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <nav className='sm:w-[70%] ml-auto p-6 shadow-md flex items-center justify-between space-x-6'>
+    <nav className='sm:w-[70%] ml-auto p-3 px-6 shadow-md flex items-center justify-between space-x-6'>
       <div className='grid grid-cols-2 sm:flex items-center rounded-md bg-gray-200 w-fit p-2 space-x-5'>
         <input
           placeholder='Search for name, order ID, vendor etc...'

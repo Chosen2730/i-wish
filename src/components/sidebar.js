@@ -19,7 +19,7 @@ const sideMenus = [
 const Sidebar = () => {
   const [base, setBase] = React.useState(0);
   return (
-    <aside className='bg-[#080016] w-full sm:w-[30%] p-4 sm:p-8 sm:min-h-screen fixed bottom-0 sm:top-0  '>
+    <aside className='bg-[#080016] w-full sm:w-[30%] p-4 sm:p-8 sm:min-h-screen fixed bottom-0 sm:top-0  z-10'>
       <img className='hidden sm:block w-20 mb-20' src={logo} alt='logo' />
       <div className='text-white flex sm:flex-col justify-between'>
         {sideMenus.map(({ name, img }, i) => {
