@@ -20,8 +20,10 @@ const Navbar = () => {
           />
         </div>
       </div>
-      <div className='flex items-center space-x-4'>
-        <img src={not} alt='notify' />
+      <div className='flex items-center justify-between w-52'>
+        <div className='mx-auto'>
+          <img src={not} alt='notify' />
+        </div>
         <button
           className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-2 px-4 font-normal tracking-wider'
           onClick={() => navigate("/")}
