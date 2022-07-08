@@ -11,19 +11,19 @@ const dash = () => {
     <>
       <main className='m-8 '>
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-3'>
-          <div className='bg-[#080016] text-gray-100 p-4 rounded-md relative'>
+          <div className='bg-[#080016] text-gray-100 sm:p-4 p-10 rounded-md relative'>
             <h2 className='text-base font-semibold'>Total Orders</h2>
             <h1 className='text-[#FFCC00] text-2xl my-2'>2000</h1>
             <p className='text-xs text-gray-400'>
               June, 22 - July, 22 / Last 30 days
             </p>
             <img
-              className='absolute top-4 right-4 bg-[#7805A7] p-2 rounded-md'
+              className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
               src={cart}
               alt=''
             />
           </div>
-          <div className='bg-gray-200 text-gray-900 p-4 rounded-md relative'>
+          <div className='bg-gray-200 text-gray-900 sm:p-4 p-10 rounded-md relative'>
             <h2 className='text-base font-semibold'>Total Revenues</h2>
             <h1 className='text-gray-900 text-2xl my-2'>
               <del>N</del>150000
@@ -32,19 +32,19 @@ const dash = () => {
               June, 22 - July, 22 / Last 30 days
             </p>
             <img
-              className='absolute top-4 right-4 bg-[#7805A7] p-2 rounded-md'
+              className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
               src={rev}
               alt=''
             />
           </div>
-          <div className='bg-gray-200 text-gray-900 p-4 rounded-md relative'>
+          <div className='bg-gray-200 text-gray-900 sm:p-4 p-10 rounded-md relative'>
             <h2 className='text-base font-semibold'>Total Deliveries</h2>
             <h1 className='text-gray-900 text-2xl my-2'>13000</h1>
             <p className='text-xs text-gray-700'>
               June, 22 - July, 22 / Last 30 days
             </p>
             <img
-              className='absolute top-4 right-4 bg-[#7805A7] p-2 rounded-md'
+              className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
               src={del}
               alt=''
             />
