@@ -31,7 +31,7 @@ const Category = () => {
               i={i}
               {...cat}
               setCategories={setCategories}
-              category={category}
+              category={categories}
             />
           );
         })}
