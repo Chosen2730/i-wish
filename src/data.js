@@ -12,6 +12,7 @@ export const store = [
     orderStatus: ["pending, delivered"],
     orderDate: "June 12, 2022",
     deliveryDate: "June 14, 2022",
+    category: "men's shoes",
   },
   {
     title: "Modern Wrist watch",
@@ -26,6 +27,7 @@ export const store = [
     orderStatus: ["pending, delivered"],
     orderDate: "June 12, 2022",
     deliveryDate: "June 14, 2022",
+    category: "wrist watches",
   },
   {
     title: "iphone 12",
@@ -40,6 +42,7 @@ export const store = [
     orderStatus: ["pending, delivered"],
     orderDate: "June 12, 2022",
     deliveryDate: "June 14, 2022",
+    category: "gadgets",
   },
   {
     title: "Nike Airforce",
@@ -54,6 +57,7 @@ export const store = [
     orderStatus: ["pending, delivered"],
     orderDate: "June 12, 2022",
     deliveryDate: "June 14, 2022",
+    category: "men's shoe",
   },
   {
     title: "T-Shirt",
@@ -68,6 +72,7 @@ export const store = [
     orderStatus: ["pending, delivered"],
     orderDate: "June 12, 2022",
     deliveryDate: "June 14, 2022",
+    category: "clothing",
   },
   {
     title: "MacBook Air 2020",
@@ -82,5 +87,6 @@ export const store = [
     orderStatus: ["pending, delivered"],
     orderDate: "June 12, 2022",
     deliveryDate: "June 14, 2022",
+    category: "gadgets",
   },
 ];
