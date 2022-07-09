@@ -39,6 +39,6 @@ del {
 @media (max-width: 640px) {
   .category {
     width: 100%;
-    padding: 12rem 2rem 5rem;
+    padding: 4rem 2rem;
   }
 }
