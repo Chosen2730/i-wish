@@ -50,7 +50,7 @@ const Vendor = () => {
                     <img className='w-2' src={statusImg} alt='status' />
                     <h4>{vendorStatus}</h4>
                   </div>
-                  <div className='grid grid-cols-2 w-full cursor-pointer'>
+                  <div className='flex space-x-4 w-full cursor-pointer'>
                     <h4 className='underline normal-case text--[#7805A7]'>
                       edit
                     </h4>
