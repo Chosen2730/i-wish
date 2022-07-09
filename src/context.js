@@ -1,5 +1,5 @@
 import { useContext, createContext, useState } from "react";
-import { store } from "./data";
+import { store, notifications } from "./data";
 const AppContext = createContext();
 const AppProvider = ({ children }) => {
   const [items, setItems] = useState({
@@ -18,6 +18,7 @@ const AppProvider = ({ children }) => {
   });
   const [details, setDetails] = useState(false);
   const [base, setBase] = useState(0);
+  const [notificationItems, setNotificationItems] = useState(notifications);
 
   return (
     <AppContext.Provider
@@ -29,6 +30,8 @@ const AppProvider = ({ children }) => {
         setItems,
         base,
         setBase,
+        notificationItems,
+        setNotificationItems,
       }}
     >
       {children}

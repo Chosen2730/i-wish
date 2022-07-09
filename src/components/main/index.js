@@ -3,6 +3,7 @@ import Dash from "./dash";
 import { useGlobalContext } from "../../context";
 import Order from "./order";
 import Category from "./category";
+import Notification from "./notification";
 
 const Main = () => {
   const { base } = useGlobalContext();
@@ -15,6 +16,7 @@ const Main = () => {
       {base === 0 && <Dash />}
       {base === 1 && <Order />}
       {base === 2 && <Category />}
+      {base === 3 && <Notification />}
     </main>
   );
 };

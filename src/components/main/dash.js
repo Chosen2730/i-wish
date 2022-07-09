@@ -6,6 +6,8 @@ import chart1 from "../../images/1.JPG";
 import chart2 from "../../images/2.JPG";
 import Product from "./product";
 import { useGlobalContext } from "../../context";
+import green from "../../images/dotg.png";
+import red from "../../images/doty.png";
 
 const Dash = () => {
   const { store, items, setDetails, setItems, details } = useGlobalContext();
@@ -132,10 +134,11 @@ const Dash = () => {
                 orderDate,
                 deliveryDate,
               } = product;
+              const statusImg = orderStatus === "delivered" ? green : red;
               return (
                 <div
                   key={i}
-                  className='text-xs my-2 grid grid-cols-4 lg:grid-cols-6 items-center gap-4 p-4'
+                  className='text-xs my-2 grid grid-cols-4 lg:grid-cols-6 items-center gap-4 p-4 capitalize'
                 >
                   <div className='flex items-center space-x-2'>
                     <img className='w-10 object-contain' src={img} alt='' />
@@ -148,7 +151,10 @@ const Dash = () => {
                   <h4>
                     <del>N</del> {price}
                   </h4>
-                  <h4 className=''>Pending</h4>
+                  <div className='flex items-center space-x-1'>
+                    <img className='w-2' src={statusImg} alt='status' />
+                    <h4>{orderStatus}</h4>
+                  </div>
                   <button
                     className='p-1 border-2 border-[#7805A7] text-[#7805A7] rounded-md'
                     onClick={() => {
