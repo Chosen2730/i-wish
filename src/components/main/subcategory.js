@@ -6,7 +6,7 @@ const Subcategory = ({ cat, img, setCategories, category, i }) => {
   const [catshow, setCatshow] = React.useState(false);
   return (
     <div className='relative w-full'>
-      <img src={img} className='w-full' alt='' />
+      <img src={img} className='w-full h-full object-cover' alt='' />
       <h4 className='text-center capitalize font-semibold text-sm my-2'>
         {cat}
       </h4>
