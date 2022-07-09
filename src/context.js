@@ -1,5 +1,5 @@
 import { useContext, createContext, useState } from "react";
-import { store, notifications } from "./data";
+import { store, notifications, vendors } from "./data";
 const AppContext = createContext();
 const AppProvider = ({ children }) => {
   const [items, setItems] = useState({
@@ -32,6 +32,7 @@ const AppProvider = ({ children }) => {
         setBase,
         notificationItems,
         setNotificationItems,
+        vendors,
       }}
     >
       {children}

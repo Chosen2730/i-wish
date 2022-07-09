@@ -18,6 +18,14 @@ del {
 .overflow::-webkit-scrollbar {
   display: none;
 }
+.overflowX {
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.overflowX::-webkit-scrollbar {
+  display: none;
+}
 .category {
   height: 100vh;
   display: flex;

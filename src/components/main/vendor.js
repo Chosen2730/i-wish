@@ -2,95 +2,73 @@ import { useState } from "react";
 import { useGlobalContext } from "../../context";
 import green from "../../images/dotg.png";
 import yellow from "../../images/doty.png";
+import red from "../../images/dotr.png";
 import close from "../../images/close.png";
-import NoteDetails from "./noteDetails";
 
-const Notifications = () => {
-  const { setDetails, details, notificationItems } = useGlobalContext();
-  const [showNote, setshowNote] = useState(false);
-  const [sub, setSub] = useState("");
-  const [message, setMessage] = useState("");
-  const [receiver, setReceiver] = useState("all");
-  const [noteObj, setNoteObj] = useState({
-    subject: "",
-    receiver: "",
-    date: "",
-    noteStatus: "",
-  });
+const Vendor = () => {
+  const { setDetails, details, vendors } = useGlobalContext();
 
-  const addNotification = (e) => {
-    setNoteObj({});
-    e.preventDefault();
-    if (sub && message && receiver) {
-      setshowNote(false);
-      notificationItems.push({
-        subject: sub,
-        receiver,
-        date: "jun 12, 2022",
-        noteStatus: "pending",
-      });
-    }
-  };
   return (
     <>
       <main className='m-8'>
         <div className='flex flex-col sm:flex-row justify-between '>
           <h1 className='font-semibold text-xl  sm:text-2xl text-gray-700'>
-            Notification Board
+            Vendors
           </h1>
-          <button
-            className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-2 px-4 font-normal tracking-wider w-fit my-2'
-            onClick={() => setshowNote(true)}
-          >
-            New Notification
-          </button>
         </div>
         <div className='mt-12 text-gray-700'>
-          <div className='bg-purple-200 grid grid-cols-4 md:grid-cols-5 gap-4 text-xs p-4 rounded-md font-semibold'>
-            <h4>Subject</h4>
-            <h4 className=''>Reciever</h4>
-            <h4 className='hidden md:block'>Date</h4>
-            <h4 className=''>Status</h4>
-            <h4>More</h4>
+          <div className='bg-purple-200 flex  space-x-6 md:grid md:grid-cols-5  text-xs p-4 rounded-md font-semibold w-full whitespace-nowrap overflowX'>
+            <h4>Name</h4>
+            <h4 className=''>Email</h4>
+            <h4 className=''>Mobile Number</h4>
+            <h4 className=''>Business Name</h4>
+            <h4>Status</h4>
           </div>
           <div>
-            {notificationItems.map((items, i) => {
-              const { subject, receiver, date, noteStatus, message } = items;
-              const statusImg = noteStatus === "delivered" ? green : yellow;
+            {vendors.map((items, i) => {
+              const { name, email, tel, busName, vendorStatus } = items;
+              const statusImg =
+                vendorStatus === "active"
+                  ? green
+                  : "blocked"
+                  ? red
+                  : "inactive"
+                  ? yellow
+                  : "";
               return (
                 <div
                   key={i}
-                  className='text-xs my-2 grid grid-cols-4 md:grid-cols-5 items-center gap-4 p-4 capitalize'
+                  className='text-xs my-2 flex items-center gap-4 p-4 capitalize w-full overflowX'
                 >
-                  <h4 className='font-semibold'>{subject}</h4>
+                  <h4 className='font-semibold w-full whitespace-nowrap'>
+                    {name}
+                  </h4>
 
-                  <h4 className=''>{receiver}</h4>
-                  <h4 className='hidden md:block'>{date}</h4>
-                  <div className='flex items-center space-x-1'>
+                  <h4 className='w-full whitespace-nowrap'>{email}</h4>
+                  <h4 className='w-full whitespace-nowrap'>{tel}</h4>
+                  <h4 className='w-full whitespace-nowrap'>{busName}</h4>
+                  <div className='flex items-center space-x-1 w-full whitespace-nowrap'>
                     <img className='w-2' src={statusImg} alt='status' />
-                    <h4>{noteStatus}</h4>
+                    <h4>{vendorStatus}</h4>
                   </div>
-                  <button
-                    className='p-1 border-2 border-[#7805A7] text-[#7805A7] rounded-md'
-                    onClick={() => {
-                      setDetails(true);
-                      setNoteObj({
-                        subject,
-                        receiver,
-                        date,
-                        noteStatus,
-                        message,
-                      });
-                    }}
-                  >
-                    Details
-                  </button>
+                  <div className='flex space-x-4 w-full cursor-pointer'>
+                    <h4 className='underline normal-case text--[#7805A7]'>
+                      edit
+                    </h4>
+                    <h4 className='underline normal-case text-orange-600'>
+                      block
+                    </h4>
+                    <h4 className='underline normal-case text-blue-700'>
+                      details
+                    </h4>
+                  </div>
                 </div>
               );
             })}
+            ;
           </div>
         </div>
-        <div className={`${showNote ? "category" : "category hider"} overflow`}>
+        {/* <div className={`${showNote ? "category" : "category hider"} overflow`}>
           <div className='bg-white shadow-md rounded-md p-4 text-gray-700'>
             <img
               className='bg-[#7805A7] p-2 ml-auto rounded-md'
@@ -154,11 +132,11 @@ const Notifications = () => {
               </button>
             </form>
           </div>
-        </div>
-        <NoteDetails {...noteObj} />
+        </div> */}
+        {/* <NoteDetails {...noteObj} /> */}
       </main>
     </>
   );
 };
 
-export default Notifications;
+export default Vendor;

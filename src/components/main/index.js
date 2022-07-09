@@ -4,6 +4,7 @@ import { useGlobalContext } from "../../context";
 import Order from "./order";
 import Category from "./category";
 import Notification from "./notification";
+import Vendor from "./vendor";
 
 const Main = () => {
   const { base } = useGlobalContext();
@@ -17,6 +18,7 @@ const Main = () => {
       {base === 1 && <Order />}
       {base === 2 && <Category />}
       {base === 3 && <Notification />}
+      {base === 4 && <Vendor />}
     </main>
   );
 };
