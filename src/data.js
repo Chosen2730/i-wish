@@ -207,3 +207,11 @@ export const vendors = [
     vendorStatus: "active",
   },
 ];
+export const users = [
+  {
+    name: "Adeboye Isokun ",
+    email: "ikhidie76@adewale.ng ",
+    tel: "07033295557",
+    vendorStatus: "active",
+  },
+];

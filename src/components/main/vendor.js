@@ -1,12 +1,10 @@
-import { useState } from "react";
 import { useGlobalContext } from "../../context";
 import green from "../../images/dotg.png";
 import yellow from "../../images/doty.png";
 import red from "../../images/dotr.png";
-import close from "../../images/close.png";
 
 const Vendor = () => {
-  const { setDetails, details, vendors } = useGlobalContext();
+  const { vendors } = useGlobalContext();
 
   return (
     <>
@@ -17,7 +15,7 @@ const Vendor = () => {
           </h1>
         </div>
         <div className='mt-12 text-gray-700 shadow-lg'>
-          <div className='bg-purple-200 flex  space-x-6 md:grid md:grid-cols-5  text-xs p-4 rounded-md font-semibold w-full whitespace-nowrap overflowX'>
+          <div className='bg-purple-200 flex  space-x-6 md:grid md:grid-cols-6  text-xs p-4 rounded-md font-semibold w-full whitespace-nowrap overflowX'>
             <h4>Name</h4>
             <h4 className=''>Email</h4>
             <h4 className=''>Mobile Number</h4>
@@ -52,16 +50,16 @@ const Vendor = () => {
                     <img className='w-2' src={statusImg} alt='status' />
                     <h4>{vendorStatus}</h4>
                   </div>
-                  <div className='flex space-x-4 w-full cursor-pointer'>
+                  <div className='grid grid-cols-2 w-full cursor-pointer'>
                     <h4 className='underline normal-case text--[#7805A7]'>
                       edit
                     </h4>
                     <h4 className='underline normal-case text-orange-600'>
                       block
                     </h4>
-                    <h4 className='underline normal-case text-blue-700'>
+                    {/* <h4 className='underline normal-case text-blue-700'>
                       details
-                    </h4>
+                    </h4> */}
                   </div>
                 </div>
               );

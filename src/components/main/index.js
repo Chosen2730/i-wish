@@ -5,11 +5,13 @@ import Order from "./order";
 import Category from "./category";
 import Notification from "./notification";
 import Vendor from "./vendor";
+import User from "./user";
 
 const Main = () => {
-  const { base } = useGlobalContext();
+  const { base, setDetails } = useGlobalContext();
   useEffect(() => {
     window.scrollTo({ top: 0 });
+    setDetails(false);
   }, [base]);
 
   return (
@@ -19,6 +21,7 @@ const Main = () => {
       {base === 2 && <Category />}
       {base === 3 && <Notification />}
       {base === 4 && <Vendor />}
+      {base === 5 && <User />}
     </main>
   );
 };
