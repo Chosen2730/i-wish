@@ -46,7 +46,7 @@ const Category = () => {
           Product Categories
         </h1>
         <button
-          className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-2 px-4 font-normal tracking-wider w-fit my-2'
+          className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-8 font-normal tracking-wider w-fit my-2'
           onClick={() => setCatshow(true)}
         >
           Add Category
@@ -109,7 +109,7 @@ const Category = () => {
               </div>
             </div>
             <button
-              className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-2 px-4 font-normal tracking-wider w-full my-2'
+              className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-8 font-normal tracking-wider w-full my-2'
               onClick={addCat}
             >
               Add Category

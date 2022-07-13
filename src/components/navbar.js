@@ -6,7 +6,7 @@ import not from "../images/notify.png";
 const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <nav className='sm:w-[70%] ml-auto p-3 px-6 shadow-md flex items-center justify-between space-x-6'>
+    <nav className='md:w-[75%] ml-auto p-3 px-6 shadow-md flex items-center justify-between space-x-6'>
       <div className='grid grid-cols-2 sm:flex items-center rounded-md bg-gray-200 w-fit p-2 space-x-5'>
         <input
           placeholder='Search for name, order ID, vendor etc...'
@@ -25,7 +25,7 @@ const Navbar = () => {
           <img src={not} alt='notify' />
         </div>
         <button
-          className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-2 px-4 font-normal tracking-wider'
+          className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-4 px-10 font-normal tracking-wider'
           onClick={() => navigate("/")}
         >
           Logout

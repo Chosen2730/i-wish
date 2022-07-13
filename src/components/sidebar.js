@@ -20,24 +20,24 @@ const sideMenus = [
 const Sidebar = () => {
   const { base, setBase } = useGlobalContext();
   return (
-    <aside className='bg-[#080016] w-full sm:w-[30%] p-4 sm:p-8 sm:min-h-screen fixed bottom-0 sm:top-0  z-10 overflow'>
-      <img className='hidden sm:block w-20 mb-20' src={logo} alt='logo' />
-      <div className='text-white flex sm:flex-col justify-between'>
+    <aside className='bg-[#080016] w-full md:w-[25%] p-4 md:p-8 md:pr-0 pr-0 md:min-h-screen fixed bottom-0 md:top-0  z-10 overflow'>
+      <img className='hidden md:block w-20 mb-20' src={logo} alt='logo' />
+      <div className='text-white flex md:flex-col justify-between'>
         {sideMenus.map(({ name, img }, i) => {
           return (
             <div
               className={`${
                 base === i
-                  ? "bg-gray-800 border-r-0 border-b-4 sm:border-b-0 sm:border-r-8 border-[#7805A7]"
+                  ? "bg-gray-800 border-r-0 border-b-4 md:border-b-0 md:border-r-8 border-[#7805A7]"
                   : ""
-              } flex gap-4 p-3 sm:p-5 select-none cursor-pointer transition hover:bg-gray-800 sm:hover:border-r-8 `}
+              } flex gap-4 p-3 md:p-5 select-none cursor-pointer transition hover:bg-gray-800 md:hover:border-r-8 `}
               key={i}
               onClick={() => {
                 setBase(i);
               }}
             >
-              <img className='w-3 sm:w-4 object-contain' src={img} alt='' />
-              <h5 className='hidden sm:block capitalize text-sm text-center tracking-wide'>
+              <img className=' md:w-4 object-contain' src={img} alt='' />
+              <h5 className='hidden md:block capitalize text-md text-center tracking-wide'>
                 {name}
               </h5>
             </div>

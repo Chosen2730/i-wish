@@ -3,10 +3,10 @@ import logo from "../images/logo1.png";
 
 const Header = () => {
   return (
-    <header className='p-3 shadow-md px-8'>
-      <div className='flex justify-between items-center max-w-3xl mx-auto'>
+    <header className='p-5 border-b-2'>
+      <div className='flex justify-between items-center max-w-7xl mx-auto'>
         <img className='w-20' src={logo} alt='' />
-        <button className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-2 px-4 font-normal tracking-wider'>
+        <button className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-10 font-normal tracking-wider'>
           Open App
         </button>
       </div>

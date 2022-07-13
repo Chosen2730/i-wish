@@ -15,7 +15,7 @@ const Main = () => {
   }, [base]);
 
   return (
-    <main className='sm:w-[70%] ml-auto mb-20 sm:mb-5'>
+    <main className='md:w-[75%] ml-auto mb-20 md:mb-5'>
       {base === 0 && <Dash />}
       {base === 1 && <Order />}
       {base === 2 && <Category />}

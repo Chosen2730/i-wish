@@ -11,7 +11,7 @@ const NoteDetails = ({ subject, receiver, date, noteStatus, message }) => {
     <aside
       className={`${
         details ? "translate-x-0" : "translate-x-full"
-      } overflow transition top-0 h-screen z-10 bg-white border-2 shadow-md right-0 p-8 fixed capitalize text-gray-700 w-[75%] sm:w-[50%] lg:w-[35%]`}
+      } overflow transition top-0 h-screen z-10 bg-white border-2 shadow-md right-0 p-8 fixed capitalize text-gray-900 w-[75%] sm:w-[50%] lg:w-[30%]`}
     >
       <img
         className='ml-auto bg-[#7805A7] p-2 rounded-md cursor-pointer relative -right-4'
@@ -20,21 +20,21 @@ const NoteDetails = ({ subject, receiver, date, noteStatus, message }) => {
         onClick={() => setDetails(false)}
       />
 
-      <h4 className='font-bold text-xl'>Notification Details</h4>
+      <h4 className='font-bold text-2xl'>Notification Details</h4>
       <div className='my-4'>
-        <h4 className='text-sm font-semibold'>Subject</h4>
+        <h4 className='text-lg font-semibold'>Subject</h4>
         <h4 className='text-sm'>{subject}</h4>
       </div>
       <div className='my-4'>
-        <h4 className='text-sm font-semibold'>Message Details</h4>
+        <h4 className='text-lg font-semibold'>Message Details</h4>
         <h4 className='text-sm normal-case'>{message}</h4>
       </div>
       <div className='my-4'>
-        <h4 className='text-sm font-semibold'>Reciever</h4>
+        <h4 className='text-lg font-semibold'>Reciever</h4>
         <h4 className='text-sm'>{receiver}</h4>
       </div>
       <div className='my-4'>
-        <h4 className='text-sm font-semibold'>Status</h4>
+        <h4 className='text-lg font-semibold'>Status</h4>
         <div className='flex items-center space-x-1'>
           <img className='w-2' src={statusImg} alt='status' />
           <h4>{noteStatus}</h4>
@@ -42,7 +42,7 @@ const NoteDetails = ({ subject, receiver, date, noteStatus, message }) => {
       </div>
       <div className='flex gap-5'>
         <button
-          className='p-2 px-4 w-fit text-xs border-2 bg-[#7805A7] border-[#7805A7] text-gray-50 rounded-md'
+          className='py-4 px-8 w-fit text-sm border-2 bg-[#7805A7] border-[#7805A7] text-gray-50 rounded-md'
           onClick={() => setDetails(false)}
         >
           Broadcast Notification

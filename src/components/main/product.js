@@ -1,6 +1,8 @@
 import React from "react";
 import close from "../../images/close.png";
 import { useGlobalContext } from "../../context";
+import yellow from "../../images/doty.png";
+import green from "../../images/dotg.png";
 
 const Product = () => {
   const { items, details, setDetails } = useGlobalContext();
@@ -16,12 +18,15 @@ const Product = () => {
     address,
     orderDate,
     deliveryDate,
+    orderStatus,
   } = items;
+  const statusImg = orderStatus === "delivered" ? green : yellow;
+
   return (
     <aside
       className={`${
         details ? "translate-x-0" : "translate-x-full"
-      } overflow transition top-0 h-screen z-10 bg-white border-2 shadow-md right-0 p-8 fixed capitalize text-gray-700 w-[75%] sm:w-[50%] lg:w-[35%]`}
+      } overflow transition top-0 h-screen z-10 bg-white border-2 shadow-md right-0 p-8 fixed capitalize text-gray-700 w-[75%] sm:w-[60%] md:w-[50%] lg:w-[38%] xl:w-[30%]`}
     >
       <img
         className='ml-auto bg-[#7805A7] p-2 rounded-md cursor-pointer relative -right-4'
@@ -63,9 +68,9 @@ const Product = () => {
         <h4 className='text-sm'>Delivery address</h4>
         <h4 className='text-sm font-semibold'>{address}</h4>
       </div>
-      <div className='my-2'>
-        <h4 className='text-sm'>Status</h4>
-        <h4 className='text-sm font-semibold'>Pending</h4>
+      <div className='flex items-center space-x-1 p-2 px-4 w-fit h-fit border-[#7805A7] text-[#7805A7] rounded-md text-xs border-2 my-2'>
+        <img className='w-2' src={statusImg} alt='status' />
+        <h4 className=''>{orderStatus}</h4>
       </div>
       <div className='my-2'>
         <h4 className='text-sm'>order Date</h4>
@@ -80,10 +85,10 @@ const Product = () => {
         <h4 className='text-sm font-semibold'>i-Wish Wallet</h4>
       </div>
       <div className='flex gap-5'>
-        <button className='p-2 px-4 w-fit text-xs border-2 bg-[#7805A7] border-[#7805A7] text-gray-50 rounded-md'>
+        <button className='py-4 px-8 w-fit text-xs border-2 bg-[#7805A7] border-[#7805A7] text-gray-50 rounded-md'>
           Track Order
         </button>
-        <button className='p-2 px-4 w-fit text-xs border-2 border-[#7805A7] text-[#7805A7] rounded-md'>
+        <button className='py-4 px-8 w-fit text-xs border-2 border-[#7805A7] text-[#7805A7] rounded-md'>
           Contact Vendor
         </button>
       </div>

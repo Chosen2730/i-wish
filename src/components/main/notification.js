@@ -39,7 +39,7 @@ const Notifications = () => {
             Notification Board
           </h1>
           <button
-            className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-2 px-4 font-normal tracking-wider w-fit my-2'
+            className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-6 font-normal tracking-wider w-fit my-2'
             onClick={() => setshowNote(true)}
           >
             New Notification
@@ -91,7 +91,7 @@ const Notifications = () => {
           </div>
         </div>
         <div className={`${showNote ? "category" : "category hider"} overflow`}>
-          <div className='bg-white shadow-md rounded-md p-4 text-gray-700'>
+          <div className='bg-white shadow-md rounded-md p-12 text-gray-700 w-5/6 lg:w-4/6 mt-20'>
             <img
               className='bg-[#7805A7] p-2 ml-auto rounded-md'
               src={close}
@@ -119,7 +119,7 @@ const Notifications = () => {
                 name=''
                 id=''
                 cols='30'
-                rows='10'
+                rows='5'
                 value={message}
                 placeholder='Notification Details'
                 className='block bg-gray-100 p-2 rounded-md my-2 w-full font-sm mb-4'
@@ -141,13 +141,13 @@ const Notifications = () => {
               </select>
 
               <button
-                className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-2 px-4 font-normal tracking-wider w-full my-2'
+                className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-6 font-normal tracking-wider w-full my-2'
                 onClick={addNotification}
               >
                 Broadcast Notification
               </button>
               <button
-                className='border-[#7805A7] border-2 text-[#7805A7] rounded-md text-sm md:text-base p-2 px-4 font-normal tracking-wider w-full my-2'
+                className='border-[#7805A7] border-2 text-[#7805A7] rounded-md text-sm md:text-base py-4 px-6 font-normal tracking-wider w-full my-2'
                 onClick={addNotification}
               >
                 Save as Draft
