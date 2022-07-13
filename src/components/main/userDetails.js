@@ -83,7 +83,7 @@ const UserDetails = () => {
             <h4 className='text-sm'>vendor</h4>
             <h4 className='text-sm font-semibold'>{vendor}</h4>
           </div>
-          <button className='py-4 px-8 w-fit h-fit text-xs border-2 border-[#7805A7] text-[#7805A7] rounded-md'>
+          <button className='py-3 px-6 w-fit h-fit text-xs border-2 border-[#7805A7] text-[#7805A7] rounded-md'>
             Contact Vendor
           </button>
         </div>

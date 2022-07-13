@@ -26,7 +26,7 @@ const Product = () => {
     <aside
       className={`${
         details ? "translate-x-0" : "translate-x-full"
-      } overflow transition top-0 h-screen z-10 bg-white border-2 shadow-md right-0 p-8 fixed capitalize text-gray-700 w-[75%] sm:w-[60%] md:w-[50%] lg:w-[38%] xl:w-[30%]`}
+      } overflow transition top-0 h-screen z-10 bg-white border-2 shadow-md right-0 p-8 fixed capitalize text-gray-700 w-[85%] sm:w-[60%] md:w-[50%] lg:w-[38%] xl:w-[30%]`}
     >
       <img
         className='ml-auto bg-[#7805A7] p-2 rounded-md cursor-pointer relative -right-4'
@@ -85,10 +85,10 @@ const Product = () => {
         <h4 className='text-sm font-semibold'>i-Wish Wallet</h4>
       </div>
       <div className='flex gap-5'>
-        <button className='py-4 px-8 w-fit text-xs border-2 bg-[#7805A7] border-[#7805A7] text-gray-50 rounded-md'>
+        <button className='py-3 px-4 w-fit text-xs border-2 bg-[#7805A7] border-[#7805A7] text-gray-50 rounded-md'>
           Track Order
         </button>
-        <button className='py-4 px-8 w-fit text-xs border-2 border-[#7805A7] text-[#7805A7] rounded-md'>
+        <button className='py-3 px-4 w-fit text-xs border-2 border-[#7805A7] text-[#7805A7] rounded-md'>
           Contact Vendor
         </button>
       </div>

@@ -25,7 +25,7 @@ const Navbar = () => {
           <img src={not} alt='notify' />
         </div>
         <button
-          className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-4 px-10 font-normal tracking-wider'
+          className='bg-[#7805A7] text-white rounded-md text-sm md:text-base p-3 px-6 sm:px-8 font-normal tracking-wider'
           onClick={() => navigate("/")}
         >
           Logout
