@@ -6,7 +6,7 @@ const Header = () => {
     <header className='p-5 border-b-2'>
       <div className='flex justify-between items-center max-w-7xl mx-auto'>
         <img className='w-20' src={logo} alt='' />
-        <button className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-10 font-normal tracking-wider'>
+        <button className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-3 px-8 font-normal tracking-wider'>
           Open App
         </button>
       </div>

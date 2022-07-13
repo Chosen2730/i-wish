@@ -24,7 +24,7 @@ const UserDetails = () => {
   const statusImg = orderStatus === "delivered" ? green : yellow;
   return (
     <aside className={`${details ? "category" : "category hider"} overflow`}>
-      <div className='bg-white shadow-md rounded-md p-4 sm:p-12 text-gray-700 w-full sm:w-5/6 mt-40'>
+      <div className='bg-white shadow-md rounded-md p-4 sm:p-12 text-gray-700 w-full sm:w-5/6 mt-40 capitalize'>
         <img
           className='ml-auto bg-[#7805A7] p-2 rounded-md cursor-pointer relative top-5 sm:top-0 right-5 sm:-right-4'
           src={close}
