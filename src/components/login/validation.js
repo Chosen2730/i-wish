@@ -23,30 +23,40 @@ const Validation = () => {
             <input
               className='bg-gray-200 w-10 h-10 rounded-md text-center font-bold text-xl'
               type='text'
+              inputMode='numeric'
+              autoComplete='one-time-code'
               name=''
               id=''
             />
             <input
               className='bg-gray-200 w-10 h-10 rounded-md text-center font-bold text-xl'
               type='text'
+              inputMode='numeric'
+              autoComplete='one-time-code'
               name=''
               id=''
             />
             <input
               className='bg-gray-200 w-10 h-10 rounded-md text-center font-bold text-xl'
               type='text'
+              inputMode='numeric'
+              autoComplete='one-time-code'
               name=''
               id=''
             />
             <input
               className='bg-gray-200 w-10 h-10 rounded-md text-center font-bold text-xl'
               type='text'
+              inputMode='numeric'
+              autoComplete='one-time-code'
               name=''
               id=''
             />
             <input
               className='bg-gray-200 w-10 h-10 rounded-md text-center font-bold text-xl'
               type='text'
+              inputMode='numeric'
+              autoComplete='one-time-code'
               name=''
               id=''
             />
