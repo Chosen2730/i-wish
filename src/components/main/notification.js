@@ -16,6 +16,7 @@ const Notifications = () => {
     receiver: "",
     date: "",
     noteStatus: "",
+    message: "",
   });
 
   const addNotification = (e) => {
@@ -28,6 +29,7 @@ const Notifications = () => {
         receiver,
         date: "jun 12, 2022",
         noteStatus: "pending",
+        message,
       });
     }
   };
