@@ -4,7 +4,7 @@ import { useGlobalContext } from "../../context";
 import green from "../../images/dotg.png";
 import yellow from "../../images/doty.png";
 
-const NoteDetails = ({ subject, receiver, date, noteStatus, message }) => {
+const NoteDetails = ({ subject, receiver, noteStatus, message }) => {
   const { details, setDetails } = useGlobalContext();
   const statusImg = noteStatus === "delivered" ? green : yellow;
   return (

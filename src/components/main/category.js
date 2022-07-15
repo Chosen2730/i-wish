@@ -10,15 +10,17 @@ import upload from "../../images/upload.png";
 const Category = () => {
   const [catshow, setCatshow] = useState(false);
   const category = [
-    { cat: `clothing`, img: clothing },
-    { cat: `gadgets`, img: phone },
-    { cat: `wrist watches`, img: watch },
-    { cat: `men's shoe`, img: shoe },
+    { cat: `clothing`, img: clothing, id: 1 },
+    { cat: `gadgets`, img: phone, id: 2 },
+    { cat: `wrist watches`, img: watch, id: 3 },
+    { cat: `men's shoe`, img: shoe, id: 4 },
   ];
   const [categories, setCategories] = useState(category);
   const [input, setInput] = useState("");
   const [catImg, setcatImg] = useState("");
   const [alert, setAlert] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [editId, setEditId] = useState("");
 
   const inputHandler = (e) => {
     setInput(e.target.value);
@@ -30,13 +32,31 @@ const Category = () => {
   };
   const addCat = (e) => {
     e.preventDefault();
+    setCatshow(false);
     if (input && catImg) {
       categories.push({ cat: input, img: catImg });
-      setCatshow(false);
       setInput("");
       setcatImg("");
       setAlert(false);
     }
+    if (isEdit) {
+      const newCategories = categories.map((newCat) => {
+        if (newCat.id === editId) {
+          return { ...newCat, cat: input, img: catImg };
+        }
+        return newCat;
+      });
+      setCategories(newCategories);
+    }
+  };
+
+  const editCategory = (id) => {
+    setIsEdit(true);
+    setCatshow(true);
+    setEditId(id);
+    const selectedItem = categories.find((item) => item.id === id);
+    setInput(selectedItem.cat);
+    setcatImg(selectedItem.img);
   };
 
   return (
@@ -47,7 +67,10 @@ const Category = () => {
         </h1>
         <button
           className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-8 font-normal tracking-wider w-fit my-2'
-          onClick={() => setCatshow(true)}
+          onClick={() => {
+            setCatshow(true);
+            setIsEdit(false);
+          }}
         >
           Add Category
         </button>
@@ -56,11 +79,12 @@ const Category = () => {
         {categories.map((cat, i) => {
           return (
             <Subcategory
-              key={i}
+              key={cat.id}
               i={i}
               {...cat}
               setCategories={setCategories}
               category={categories}
+              editCategory={editCategory}
             />
           );
         })}
@@ -74,7 +98,7 @@ const Category = () => {
             onClick={() => setCatshow(false)}
           />
           <h1 className='text-center text-xl sm:text-2xl font-semibold my-3'>
-            New Category
+            {isEdit ? "Edit Category" : "New Category"}
           </h1>
           <form action='' className='sm:w-4/6 mx-auto'>
             <label htmlFor='category' className='font-semibold text-sm'>
@@ -101,6 +125,7 @@ const Category = () => {
                     placeholder='Browse to upload your file'
                     className='hidden'
                     id='image'
+                    value={""}
                     onChange={imageHandler}
                   />
                   Browse to upload your file
