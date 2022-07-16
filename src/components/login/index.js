@@ -3,7 +3,7 @@ import Validation from "./validation";
 import Unauth from "./unauth";
 
 const Login = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = (e) => {
