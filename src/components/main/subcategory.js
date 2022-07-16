@@ -6,12 +6,13 @@ const Subcategory = ({
   cat,
   id,
   img,
-  setCategories,
-  category,
-  i,
   editCategory,
+  category,
+  setCategories,
+  i,
 }) => {
   const [pop, setPop] = useState(false);
+  const [del, setDel] = useState(false);
   return (
     <div className='relative w-full'>
       <img src={img} className='w-full h-52 object-cover' alt='' />
@@ -39,15 +40,38 @@ const Subcategory = ({
             <h4
               onClick={() => {
                 {
-                  setCategories(category.filter((item, index) => index !== i));
                 }
                 setPop(false);
+                setDel(true);
               }}
             >
               Delete
             </h4>
           </div>
         )}
+      </div>
+      <div className={`${del ? "category" : "category hider"} overflow z-10`}>
+        <div className='bg-white shadow-md rounded-md p-10 text-center'>
+          <img
+            className='bg-[#7805A7] p-2 ml-auto rounded-md'
+            src={close}
+            alt=''
+            onClick={() => setDel(false)}
+          />
+          <h1 className='text-center text-xl sm:text-2xl my-3 mt-10'>
+            Are you sure you want to delete?
+          </h1>
+
+          <button
+            className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-8 font-normal tracking-wider w-fit my-2'
+            onClick={() => {
+              setCategories(category.filter((_, index) => index !== i));
+              setDel(false);
+            }}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

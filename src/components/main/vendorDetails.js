@@ -6,17 +6,17 @@ import red from "../../images/dotr.png";
 import UserDetails from "./userDetails";
 import back from "../../images/back.png";
 
-const VendorDetails = ({ setPage, vendDetails }) => {
-  const { store } = useGlobalContext();
-  const { name, email, tel, busName, vendorStatus } = vendDetails;
-  const statusImg =
-    vendorStatus === "active"
-      ? green
-      : "blocked"
-      ? red
-      : "inactive"
-      ? yellow
-      : "";
+const VendorDetails = () => {
+  const { store, setPage, vendDetails, newStat } = useGlobalContext();
+  const { name, email, tel, busName } = vendDetails;
+  let statusImg;
+  if (newStat === "inactive") {
+    statusImg = yellow;
+  } else if (newStat === "active") {
+    statusImg = green;
+  } else if (newStat === "blocked") {
+    statusImg = red;
+  }
   return (
     <>
       <main className='text-gray-900'>
@@ -30,16 +30,16 @@ const VendorDetails = ({ setPage, vendDetails }) => {
           <h1 className='font-semibold text-xl  sm:text-2xl'>Vendor Details</h1>
         </div>
         <div className='mt-12 shadow-lg'>
-          <div className='bg-purple-200 flex justify-between lg:grid lg:grid-cols-6 space-x-6  text-xs p-4 rounded-md font-semibold w-full whitespace-nowrap overflowX'>
+          <div className='bg-purple-200 flex justify-between lg:grid lg:grid-cols-5 gap-3 text-xs p-4 rounded-md font-semibold w-full whitespace-nowrap overflowX'>
             <h4>Name</h4>
             <h4 className=''>Email</h4>
             <h4 className=''>Mobile Number</h4>
             <h4 className=''>Business Name</h4>
             <h4>Status</h4>
-            <h4>Action</h4>
+            {/* <h4>Action</h4> */}
           </div>
           <div>
-            <div className='flex lg:grid lg:grid-cols-6 space-x-6  text-xs p-4 rounded-md w-full whitespace-nowrap overflowX'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3  text-xs p-4 rounded-md w-full whitespace-nowrap overflowX'>
               <h4 className='font-semibold w-full whitespace-nowrap'>{name}</h4>
 
               <h4 className='w-full whitespace-nowrap'>{email}</h4>
@@ -47,12 +47,12 @@ const VendorDetails = ({ setPage, vendDetails }) => {
               <h4 className='w-full whitespace-nowrap'>{busName}</h4>
               <div className='flex items-center space-x-1 w-full whitespace-nowrap'>
                 <img className='w-2' src={statusImg} alt='status' />
-                <h4>{vendorStatus}</h4>
+                <h4>{newStat}</h4>
               </div>
-              <div className='flex space-x-4 w-full cursor-pointer'>
+              {/* <div className='flex space-x-4 w-full cursor-pointer'>
                 <h4 className='underline normal-case text--[#7805A7]'>edit</h4>
                 <h4 className='underline normal-case text-orange-600'>block</h4>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -33,13 +33,9 @@ const Category = () => {
   const addCat = (e) => {
     e.preventDefault();
     setCatshow(false);
-    if (input && catImg) {
-      categories.push({ cat: input, img: catImg });
-      setInput("");
-      setcatImg("");
-      setAlert(false);
-    }
-    if (isEdit) {
+    setInput("");
+    setcatImg("");
+    if (isEdit && input && catImg) {
       const newCategories = categories.map((newCat) => {
         if (newCat.id === editId) {
           return { ...newCat, cat: input, img: catImg };
@@ -47,6 +43,9 @@ const Category = () => {
         return newCat;
       });
       setCategories(newCategories);
+    } else if (input && catImg) {
+      categories.push({ cat: input, img: catImg });
+      setAlert(false);
     }
   };
 

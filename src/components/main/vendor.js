@@ -1,14 +1,29 @@
 import { useGlobalContext } from "../../context";
 import { useState } from "react";
-import green from "../../images/dotg.png";
-import yellow from "../../images/doty.png";
-import red from "../../images/dotr.png";
 import VendorDetails from "./vendorDetails";
+import SingleVendor from "./singleVendor";
+import close from "../../images/close.png";
 
 const Vendor = () => {
-  const { vendors } = useGlobalContext();
-  const [vendDetails, setVendDetails] = useState({});
-  const [page, setPage] = useState(true);
+  const {
+    edit,
+    editVendor,
+    isEdit,
+    allVendors,
+    mail,
+    setMail,
+    tel,
+    setTel,
+    business,
+    setBusiness,
+    setIsEdit,
+    page,
+    setPage,
+    vendDetails,
+    setVendDetails,
+    newStat,
+    setNewStat,
+  } = useGlobalContext();
 
   return (
     <>
@@ -29,66 +44,76 @@ const Vendor = () => {
               <h4>Action</h4>
             </div>
             <div>
-              {vendors.map((items, i) => {
-                const { name, email, tel, busName, vendorStatus } = items;
-                const statusImg =
-                  vendorStatus === "active"
-                    ? green
-                    : "blocked"
-                    ? red
-                    : "inactive"
-                    ? yellow
-                    : "";
-                return (
-                  <div
-                    key={i}
-                    className='text-xs my-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 items-center gap-4 p-4 capitalize w-full overflowX'
-                  >
-                    <h4 className='font-semibold w-full whitespace-nowrap'>
-                      {name}
-                    </h4>
-
-                    <h4 className='w-full whitespace-nowrap'>{email}</h4>
-                    <h4 className='w-full whitespace-nowrap'>{tel}</h4>
-                    <h4 className='w-full whitespace-nowrap'>{busName}</h4>
-                    <div className='flex items-center space-x-1 w-full whitespace-nowrap'>
-                      <img className='w-2' src={statusImg} alt='status' />
-                      <h4>{vendorStatus}</h4>
-                    </div>
-                    <div className='flex space-x-4 w-full cursor-pointer'>
-                      <h4 className='underline normal-case text--[#7805A7]'>
-                        edit
-                      </h4>
-                      <h4 className='underline normal-case text-orange-600'>
-                        block
-                      </h4>
-                      <h4
-                        className='underline normal-case text-blue-700'
-                        onClick={() => {
-                          setVendDetails({
-                            name,
-                            email,
-                            tel,
-                            busName,
-                            vendorStatus,
-                          });
-                          setPage(false);
-                        }}
-                      >
-                        details
-                      </h4>
-                    </div>
-                  </div>
-                );
+              {allVendors.map((items) => {
+                return <SingleVendor {...items} key={items.id} />;
               })}
             </div>
           </div>
         </main>
       ) : (
         <main className='m-8'>
-          <VendorDetails vendDetails={vendDetails} setPage={setPage} />
+          <VendorDetails
+            vendDetails={vendDetails}
+            newStat={newStat}
+            setPage={setPage}
+          />
         </main>
       )}
+
+      <div className={`${isEdit ? "category" : "category hider"} overflow`}>
+        <div className='bg-white shadow-md rounded-md p-4 w-[100%] sm:w-[70%]'>
+          <img
+            className='bg-[#7805A7] p-2 ml-auto rounded-md'
+            src={close}
+            alt=''
+            onClick={() => setIsEdit(false)}
+          />
+          <h1 className='text-center text-xl sm:text-2xl font-semibold my-3'>
+            Edit Vendor Details
+          </h1>
+          <form action='' className='sm:w-4/6 mx-auto'>
+            <label htmlFor='category' className='text-sm'>
+              Email
+            </label>
+            <input
+              type='email'
+              id='category'
+              className='block bg-gray-100 p-2 rounded-md my-2 w-full text-sm'
+              placeholder='New email'
+              value={mail}
+              onChange={(e) => setMail(e.target.value)}
+            />
+            <label htmlFor='tel' className='text-sm'>
+              Mobile No.
+            </label>
+            <input
+              type='tel'
+              id='tel'
+              className='block bg-gray-100 p-2 rounded-md my-2 w-full text-sm'
+              placeholder='New Phone number'
+              value={tel}
+              onChange={(e) => setTel(e.target.value)}
+            />
+            <label htmlFor='name' className='text-sm'>
+              Business Name
+            </label>
+            <input
+              type='text'
+              id='name'
+              className='block bg-gray-100 p-2 rounded-md my-2 w-full text-sm'
+              placeholder='New Business Name'
+              value={business}
+              onChange={(e) => setBusiness(e.target.value)}
+            />
+            <button
+              className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-8 font-normal tracking-wider w-full my-2'
+              onClick={editVendor}
+            >
+              Edit
+            </button>
+          </form>
+        </div>
+      </div>
     </>
   );
 };

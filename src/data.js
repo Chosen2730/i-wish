@@ -142,6 +142,7 @@ export const vendors = [
     tel: "07033295557",
     busName: "Daniel Inc",
     vendorStatus: "inactive",
+    id: 0,
   },
   {
     name: "Ifeoma Oluwanisola",
@@ -149,6 +150,7 @@ export const vendors = [
     tel: "07033295557",
     busName: "Wilkinson and Aufderhar",
     vendorStatus: "active",
+    id: 1,
   },
   {
     name: "Akande Adegboye",
@@ -156,13 +158,15 @@ export const vendors = [
     tel: "07033295557",
     busName: "AKT  Store",
     vendorStatus: "inactive",
+    id: 2,
   },
   {
     name: "Adeboye Isokun ",
     email: "ikhidie76@adewale.ng ",
     tel: "07033295557",
     busName: "The4kStore",
-    vendorStatus: "blocked",
+    vendorStatus: "active",
+    id: 3,
   },
   {
     name: "Adeboye Isokun ",
@@ -170,6 +174,7 @@ export const vendors = [
     tel: "07033295557",
     busName: "The4kStore",
     vendorStatus: "inactive",
+    id: 4,
   },
   {
     name: "Nnamdi Oluwatosin",
@@ -177,27 +182,31 @@ export const vendors = [
     tel: "07033295557",
     busName: "Daniel Inc",
     vendorStatus: "active",
+    id: 5,
   },
   {
     name: "Ifeoma Oluwanisola",
     email: "xgbadamosi@adewale.net ",
     tel: "07033295557",
     busName: "Wilkinson and Aufderhar",
-    vendorStatus: "blocked",
+    vendorStatus: "inactive",
+    id: 6,
   },
   {
     name: "Akande Adegboye",
     email: "zelizabeth@gmail.com",
     tel: "07033295557",
     busName: "AKT  Store",
-    vendorStatus: "inactive",
+    vendorStatus: "active",
+    id: 7,
   },
   {
     name: "Adeboye Isokun ",
     email: "ikhidie76@adewale.ng ",
     tel: "07033295557",
     busName: "The4kStore",
-    vendorStatus: "blocked",
+    vendorStatus: "inactive",
+    id: 8,
   },
   {
     name: "Adeboye Isokun ",
@@ -205,6 +214,7 @@ export const vendors = [
     tel: "07033295557",
     busName: "The4kStore",
     vendorStatus: "active",
+    id: 9,
   },
 ];
 export const users = [
