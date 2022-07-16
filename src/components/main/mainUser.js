@@ -46,15 +46,15 @@ const MainUser = () => {
           </h1>
         </div>
         <div className='mt-12 text-gray-700 shadow-lg'>
-          <div className='bg-purple-200 flex lg:grid lg:grid-cols-5 space-x-6  text-xs p-4 rounded-md font-semibold w-full whitespace-nowrap overflowX'>
+          <div className='bg-purple-200 flex justify-between lg:grid lg:grid-cols-4 gap-3 text-xs p-4 rounded-md font-semibold w-full whitespace-nowrap overflowX'>
             <h4>Name</h4>
             <h4 className=''>Email</h4>
             <h4 className=''>Mobile Number</h4>
             <h4>Status</h4>
-            <h4>Action</h4>
+            {/* <h4>Action</h4> */}
           </div>
           <div>
-            <div className='text-xs my-2 flex items-center gap-4 p-4 capitalize w-full overflowX'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3  text-xs p-4 rounded-md w-full whitespace-nowrap overflowX'>
               <h4 className='font-semibold w-full whitespace-nowrap'>{name}</h4>
 
               <h4 className='w-full whitespace-nowrap'>{email}</h4>
@@ -63,10 +63,10 @@ const MainUser = () => {
                 <img className='w-2' src={statusImg2} alt='status' />
                 <h4>{newStat}</h4>
               </div>
-              <div className='flex space-x-4 w-full cursor-pointer'>
+              {/* <div className='flex space-x-4 w-full cursor-pointer'>
                 <h4 className='underline normal-case text--[#7805A7]'>edit</h4>
                 <h4 className='underline normal-case text-orange-600'>block</h4>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

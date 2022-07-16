@@ -1,8 +1,25 @@
 import { useGlobalContext } from "../../context";
 import SingleUser from "./singleUser";
+import close from "../../images/close.png";
 
 const AllUsers = () => {
-  const { vendors } = useGlobalContext();
+  const {
+    edit,
+    editVendor,
+    isEdit,
+    allVendors,
+    mail,
+    setMail,
+    tel,
+    setTel,
+    business,
+    setBusiness,
+    setIsEdit,
+    page,
+    setPage,
+    vendDetails,
+    newStat,
+  } = useGlobalContext();
 
   return (
     <>
@@ -24,12 +41,66 @@ const AllUsers = () => {
             <h4>Action</h4>
           </div>
           <div>
-            {vendors.map((item) => {
+            {allVendors.map((item) => {
               return <SingleUser {...item} key={item.id} />;
             })}
           </div>
         </div>
       </main>
+      <div className={`${isEdit ? "category" : "category hider"} overflow`}>
+        <div className='bg-white shadow-md rounded-md p-4 w-[100%] sm:w-[70%]'>
+          <img
+            className='bg-[#7805A7] p-2 ml-auto rounded-md'
+            src={close}
+            alt=''
+            onClick={() => setIsEdit(false)}
+          />
+          <h1 className='text-center text-xl sm:text-2xl font-semibold my-3'>
+            Edit Vendor Details
+          </h1>
+          <form action='' className='sm:w-4/6 mx-auto'>
+            <label htmlFor='category' className='text-sm'>
+              Email
+            </label>
+            <input
+              type='email'
+              id='category'
+              className='block bg-gray-100 p-2 rounded-md my-2 w-full text-sm'
+              placeholder='New email'
+              value={mail}
+              onChange={(e) => setMail(e.target.value)}
+            />
+            <label htmlFor='tel' className='text-sm'>
+              Mobile No.
+            </label>
+            <input
+              type='tel'
+              id='tel'
+              className='block bg-gray-100 p-2 rounded-md my-2 w-full text-sm'
+              placeholder='New Phone number'
+              value={tel}
+              onChange={(e) => setTel(e.target.value)}
+            />
+            <label htmlFor='name' className='text-sm'>
+              Business Name
+            </label>
+            <input
+              type='text'
+              id='name'
+              className='block bg-gray-100 p-2 rounded-md my-2 w-full text-sm'
+              placeholder='New Business Name'
+              value={business}
+              onChange={(e) => setBusiness(e.target.value)}
+            />
+            <button
+              className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-8 font-normal tracking-wider w-full my-2'
+              onClick={editVendor}
+            >
+              Edit
+            </button>
+          </form>
+        </div>
+      </div>
     </>
   );
 };

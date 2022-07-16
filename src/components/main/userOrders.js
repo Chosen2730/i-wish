@@ -9,7 +9,7 @@ const UserOrders = () => {
     <main className='m-8'>
       <div className='mt-12'>
         <h1 className='font-bold text-2xl capitalize my-4'>Orders</h1>
-        <div className='bg-purple-200 grid grid-cols-4 lg:grid-cols-6 gap-4 text-xs p-4 rounded-md font-semibold'>
+        <div className='bg-purple-200 flex justify-between lg:grid lg:grid-cols-5 gap-3 text-xs p-4 rounded-md font-semibold w-full whitespace-nowrap overflowX'>
           <h4>Product</h4>
           <h4 className='hidden lg:block'>Order ID</h4>
           <h4 className='hidden lg:block'>Date</h4>
