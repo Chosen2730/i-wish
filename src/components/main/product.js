@@ -5,7 +5,7 @@ import yellow from "../../images/doty.png";
 import green from "../../images/dotg.png";
 
 const Product = () => {
-  const { items, details, setDetails } = useGlobalContext();
+  const { items, details, setDetails, setPage } = useGlobalContext();
   const {
     title,
     img,
@@ -85,7 +85,10 @@ const Product = () => {
         <h4 className='text-sm font-semibold'>i-Wish Wallet</h4>
       </div>
       <div className='flex gap-5'>
-        <button className='py-3 px-4 w-fit text-xs border-2 bg-[#7805A7] border-[#7805A7] text-gray-50 rounded-md'>
+        <button
+          className='py-3 px-4 w-fit text-xs border-2 bg-[#7805A7] border-[#7805A7] text-gray-50 rounded-md'
+          onClick={() => setPage(false)}
+        >
           Track Order
         </button>
         <button className='py-3 px-4 w-fit text-xs border-2 border-[#7805A7] text-[#7805A7] rounded-md'>

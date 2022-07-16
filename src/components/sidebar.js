@@ -6,7 +6,9 @@ import cat from "../images/Vector-7.png";
 import not from "../images/Vector-8.png";
 import ven from "../images/Vector-9.png";
 import user from "../images/Vector-10.png";
+import truck from "../images/truck.png";
 import { useGlobalContext } from "../context";
+// import { TbTruckDelivery } from "react-icons/tb";
 
 const sideMenus = [
   { name: "dashboard", img: dash },
@@ -15,6 +17,7 @@ const sideMenus = [
   { name: "notifications", img: not },
   { name: "vendors", img: ven },
   { name: "users", img: user },
+  { name: "delivery", img: truck },
 ];
 
 const Sidebar = () => {
@@ -38,7 +41,7 @@ const Sidebar = () => {
                 setIsEdit(false);
               }}
             >
-              <img className=' md:w-4 object-contain' src={img} alt='' />
+              <img className='w-3 md:w-4 object-contain' src={img} alt='' />
               <h5 className='hidden md:block capitalize text-md text-center tracking-wide'>
                 {name}
               </h5>

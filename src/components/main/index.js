@@ -6,6 +6,7 @@ import Category from "./category";
 import Notification from "./notification";
 import Vendor from "./vendor";
 import User from "./user";
+import { Delivery } from "./delivery";
 
 const Main = () => {
   const { base, setDetails } = useGlobalContext();
@@ -22,6 +23,7 @@ const Main = () => {
       {base === 3 && <Notification />}
       {base === 4 && <Vendor />}
       {base === 5 && <User />}
+      {base === 6 && <Delivery />}
     </main>
   );
 };
