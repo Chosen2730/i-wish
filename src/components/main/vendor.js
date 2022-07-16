@@ -1,5 +1,4 @@
 import { useGlobalContext } from "../../context";
-import { useState } from "react";
 import VendorDetails from "./vendorDetails";
 import SingleVendor from "./singleVendor";
 import close from "../../images/close.png";
@@ -20,9 +19,7 @@ const Vendor = () => {
     page,
     setPage,
     vendDetails,
-    setVendDetails,
     newStat,
-    setNewStat,
   } = useGlobalContext();
 
   return (

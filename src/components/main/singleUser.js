@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
+import { useGlobalContext } from "../../context";
 import green from "../../images/dotg.png";
 import yellow from "../../images/doty.png";
 import red from "../../images/dotr.png";
 import close from "../../images/close.png";
-import { useGlobalContext } from "../../context";
 
-const SingleVendor = ({ name, email, tel, busName, vendorStatus, id }) => {
-  const { setPage, setVendDetails, setIsEdit, setNewStat, edit } =
+const SingleUser = ({ name, email, tel, busName, id, vendorStatus }) => {
+  const { setPage, setVendDetails, setIsEdit, setNewStat, edit, page } =
     useGlobalContext();
 
   const [isBlock, setIsBlock] = useState(false);
@@ -36,7 +36,6 @@ const SingleVendor = ({ name, email, tel, busName, vendorStatus, id }) => {
       setStat("active");
     }
   }, []);
-
   return (
     <div className='text-xs my-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 items-center gap-4 p-4 capitalize w-full overflowX'>
       <h4 className='font-semibold w-full whitespace-nowrap'>{name}</h4>
@@ -65,7 +64,7 @@ const SingleVendor = ({ name, email, tel, busName, vendorStatus, id }) => {
           {action}
         </h4>
         <h4
-          className='underline normal-case text-blue-700 cursor-pointer'
+          className='underline normal-case text-blue-700'
           onClick={() => {
             setVendDetails({
               name,
@@ -119,4 +118,4 @@ const SingleVendor = ({ name, email, tel, busName, vendorStatus, id }) => {
   );
 };
 
-export default SingleVendor;
+export default SingleUser;

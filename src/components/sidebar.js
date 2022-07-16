@@ -18,7 +18,7 @@ const sideMenus = [
 ];
 
 const Sidebar = () => {
-  const { base, setBase } = useGlobalContext();
+  const { base, setBase, setPage } = useGlobalContext();
   return (
     <aside className='bg-[#080016] w-full md:w-[25%] p-4 md:p-8 md:pr-0 pr-0 md:min-h-screen fixed bottom-0 md:top-0  z-10 overflow'>
       <img className='hidden md:block w-20 mb-20' src={logo} alt='logo' />
@@ -34,6 +34,7 @@ const Sidebar = () => {
               key={i}
               onClick={() => {
                 setBase(i);
+                setPage(true);
               }}
             >
               <img className=' md:w-4 object-contain' src={img} alt='' />
