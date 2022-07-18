@@ -15,10 +15,6 @@ const AllUsers = () => {
     business,
     setBusiness,
     setIsEdit,
-    page,
-    setPage,
-    vendDetails,
-    newStat,
   } = useGlobalContext();
 
   return (

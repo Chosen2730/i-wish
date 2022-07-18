@@ -62,7 +62,7 @@ const Validation = () => {
             />
           </div>
           <input
-            className='block bg-[#7805A7] rounded-md text-purple-100  py-4 my-4 text-sm md:text-xl font-bold w-full capitalize'
+            className='block bg-[#7805A7] rounded-md text-purple-100  py-4 my-4 text-sm md:text-xl w-fit px-6 capitalize'
             type='submit'
             value='Proceed to Dashboard'
             onClick={() => navigate("/dashboard")}

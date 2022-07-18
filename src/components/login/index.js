@@ -52,7 +52,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <input
-                className='block bg-[#7805A7] rounded-md text-purple-100  py-4 my-4 text-sm md:text-xl font-bold w-full capitalize'
+                className='block bg-[#7805A7] rounded-md text-purple-100 py-4 my-4 text-sm md:text-xl w-full md:w-1/2 px-6 capitalize mx-auto'
                 type='submit'
                 value='login'
               />

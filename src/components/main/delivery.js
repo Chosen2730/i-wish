@@ -8,6 +8,9 @@ export const Delivery = () => {
 
   return (
     <div className='m-8'>
+      <h1 className='font-semibold text-xl my-10  sm:text-2xl text-gray-700'>
+        Order Panel
+      </h1>
       <main className='grid lg:grid-cols-2 gap-4'>
         {store.map((items) => {
           const {
@@ -26,7 +29,10 @@ export const Delivery = () => {
           } = items;
           const statusImg = orderStatus === "delivered" ? green : yellow;
           return (
-            <div className='bg-white shadow-md rounded-md p-4 sm:p-4 text-gray-700 w-full border-2 border-gray-100 capitalize'>
+            <div
+              key={store.id}
+              className='bg-white shadow-md rounded-md p-4 sm:p-4 text-gray-700 w-full border-2 border-gray-100 capitalize'
+            >
               <div className='flex flex-col sm:flex-row sm:items-center gap-4 my-5'>
                 <img className='w-1/2 sm:w-48' src={img} alt='' />
                 <div className='grid grid-cols-2 sm:grid-cols-1 mb-4 sm:mb-2 items-baseline'>

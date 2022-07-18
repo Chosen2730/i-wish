@@ -93,7 +93,7 @@ const Dash = () => {
                       <h4>{orderStatus}</h4>
                     </div>
                     <button
-                      className='p-1 border-2 border-[#7805A7] text-[#7805A7] rounded-md'
+                      className='p-2 px-4  w-fit border-2 border-[#7805A7] text-[#7805A7] rounded-md'
                       onClick={() => {
                         setItems({
                           title,

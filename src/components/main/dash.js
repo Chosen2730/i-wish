@@ -4,6 +4,8 @@ import del from "../../images/del.png";
 import cart from "../../images/cart.png";
 import chart1 from "../../images/1.JPG";
 import chart2 from "../../images/2.JPG";
+import vendor from "../../images/Vector-9.png";
+import user from "../../images/Vector-10.png";
 import Product from "./product";
 import { useGlobalContext } from "../../context";
 import green from "../../images/dotg.png";
@@ -16,7 +18,7 @@ const Dash = () => {
     <>
       {page && (
         <main className='m-8'>
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-3'>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-8'>
             <div className='bg-[#080016] text-gray-100 sm:p-4 p-10 rounded-md relative'>
               <h2 className='text-base font-semibold'>Total Orders</h2>
               <h1 className='text-[#FFCC00] text-2xl my-2 font-bold'>2000</h1>
@@ -55,6 +57,30 @@ const Dash = () => {
                 alt=''
               />
             </div>
+            <div className='bg-[#080016] text-gray-100 sm:p-4 p-10 rounded-md relative'>
+              <h2 className='text-base font-semibold'>Total Vendors</h2>
+              <h1 className='text-[#FFCC00] text-2xl my-2 font-bold'>120</h1>
+              <p className='text-xs text-gray-400'>
+                June, 22 - July, 22 / Last 30 days
+              </p>
+              <img
+                className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
+                src={vendor}
+                alt=''
+              />
+            </div>
+            <div className='bg-gray-200 text-gray-900 sm:p-4 p-10 rounded-md relative'>
+              <h2 className='text-base font-semibold'>Total Users</h2>
+              <h1 className='text-gray-900 text-2xl my-2 font-bold'>1000</h1>
+              <p className='text-xs text-gray-700'>
+                June, 22 - July, 22 / Last 30 days
+              </p>
+              <img
+                className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
+                src={user}
+                alt=''
+              />
+            </div>
           </div>
 
           <div className='my-8 grid md:grid-cols-2 gap-8'>
@@ -64,7 +90,7 @@ const Dash = () => {
                 <select
                   name=''
                   id=''
-                  className='border-[#7805A7] border-2 rounded-md p-2 px-4 md:w-full text-sm'
+                  className='border-[#7805A7] border-2 rounded-md p-2 px-4 text-sm w-fit'
                 >
                   <option value=''>Daily</option>
                   <option value=''>Weekly</option>
@@ -89,7 +115,7 @@ const Dash = () => {
                 <select
                   name=''
                   id=''
-                  className='border-[#7805A7] border-2 rounded-md p-2 px-4 md:w-full text-sm'
+                  className='border-[#7805A7] border-2 rounded-md p-2 px-4 w-fit text-sm'
                 >
                   <option value=''>Daily</option>
                   <option value=''>Weekly</option>
@@ -158,7 +184,7 @@ const Dash = () => {
                       <h4>{orderStatus}</h4>
                     </div>
                     <button
-                      className='p-1 border-2 border-[#7805A7] text-[#7805A7] rounded-md'
+                      className='p-1 border-2 border-[#7805A7] text-[#7805A7] rounded-md w-fit px-4 py-2'
                       onClick={() => {
                         setItems({
                           title,

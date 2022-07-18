@@ -111,7 +111,7 @@ const SingleVendor = ({ name, email, tel, busName, vendorStatus, id }) => {
               }
             }}
           >
-            {action}
+            Yes
           </button>
         </div>
       </div>

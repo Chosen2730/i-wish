@@ -69,7 +69,7 @@ const Subcategory = ({
               setDel(false);
             }}
           >
-            Delete
+            Yes
           </button>
         </div>
       </div>
