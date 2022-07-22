@@ -136,7 +136,7 @@ const Category = () => {
               className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-8 font-normal tracking-wider w-full my-2'
               onClick={addCat}
             >
-              Add Category
+              {isEdit ? "Edit Category" : "Add Category"}
             </button>
           </form>
         </div>
