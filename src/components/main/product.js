@@ -5,7 +5,8 @@ import yellow from "../../images/doty.png";
 import green from "../../images/dotg.png";
 
 const Product = () => {
-  const { items, details, setDetails, setPage } = useGlobalContext();
+  const { items, details, setDetails, setPage, delStatus, setDelStatus } =
+    useGlobalContext();
   const {
     title,
     img,
@@ -18,9 +19,8 @@ const Product = () => {
     address,
     orderDate,
     deliveryDate,
-    orderStatus,
   } = items;
-  const statusImg = orderStatus === "delivered" ? green : yellow;
+  const statusImg = delStatus === "delivered" ? green : yellow;
 
   return (
     <aside
@@ -70,7 +70,15 @@ const Product = () => {
       </div>
       <div className='flex items-center space-x-1 p-2 px-4 w-fit h-fit border-[#7805A7] text-[#7805A7] rounded-md text-xs border-2 my-2'>
         <img className='w-2' src={statusImg} alt='status' />
-        <h4 className=''>{orderStatus}</h4>
+        <select
+          name=''
+          value={delStatus}
+          id=''
+          onChange={(e) => setDelStatus(e.target.value)}
+        >
+          <option value='pending'>Pending</option>
+          <option value='delivered'>Delivered</option>
+        </select>
       </div>
       <div className='my-2'>
         <h4 className='text-sm'>order Date</h4>
