@@ -89,6 +89,7 @@ const Product = () => {
           name=''
           value={delStatus}
           id=''
+          className='bg-transparent'
           onChange={(e) => setDelStatus(e.target.value)}
         >
           <option value='pending'>Pending</option>

@@ -98,6 +98,7 @@ const SingleDelOrder = ({
             value={delStatus}
             id=''
             onChange={(e) => setDelStatus(e.target.value)}
+            className='bg-transparent'
           >
             <option value='pending'>Pending</option>
             <option value='delivered'>Delivered</option>
