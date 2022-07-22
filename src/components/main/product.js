@@ -3,6 +3,7 @@ import close from "../../images/close.png";
 import { useGlobalContext } from "../../context";
 import yellow from "../../images/doty.png";
 import green from "../../images/dotg.png";
+import red from "../../images/dotr.png";
 
 const Product = () => {
   const { items, details, setDetails, setPage, delStatus, setDelStatus } =
@@ -20,7 +21,21 @@ const Product = () => {
     orderDate,
     deliveryDate,
   } = items;
-  const statusImg = delStatus === "delivered" ? green : yellow;
+  let statusImg;
+  if (delStatus === "delivered") {
+    statusImg = green;
+  } else if (delStatus === "cancelled") {
+    statusImg = red;
+  } else {
+    statusImg = yellow;
+  }
+  //
+  //   ? green
+  //   : "cancelled"
+  //   ? red
+  //   : "pending"
+  //   ? yellow
+  //   : "";
 
   return (
     <aside
@@ -78,6 +93,7 @@ const Product = () => {
         >
           <option value='pending'>Pending</option>
           <option value='delivered'>Delivered</option>
+          <option value='cancelled'>Cancelled</option>
         </select>
       </div>
       <div className='my-2'>

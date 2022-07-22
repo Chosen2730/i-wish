@@ -2,6 +2,7 @@ import React from "react";
 import { useGlobalContext } from "../../context";
 import yellow from "../../images/doty.png";
 import green from "../../images/dotg.png";
+import red from "../../images/dotr.png";
 
 const SingleDelOrder = ({
   title,
@@ -18,7 +19,14 @@ const SingleDelOrder = ({
 }) => {
   const { store } = useGlobalContext();
   const [delStatus, setDelStatus] = React.useState("");
-  const statusImg = delStatus === "delivered" ? green : yellow;
+  let statusImg;
+  if (delStatus === "delivered") {
+    statusImg = green;
+  } else if (delStatus === "cancelled") {
+    statusImg = red;
+  } else {
+    statusImg = yellow;
+  }
   return (
     <div
       key={store.id}
@@ -93,6 +101,7 @@ const SingleDelOrder = ({
           >
             <option value='pending'>Pending</option>
             <option value='delivered'>Delivered</option>
+            <option value='cancelled'>Cancelled</option>
           </select>
         </div>
       </div>

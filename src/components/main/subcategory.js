@@ -21,7 +21,7 @@ const Subcategory = ({
       </h4>
       <div className='bg-black p-4 rounded-md text-gray-50 text-xs cursor-pointer absolute top-1 right-1'>
         <img
-          className='ml-auto p-1'
+          className='ml-auto p-3'
           src={pop ? close : more}
           alt='more'
           onClick={() => setPop(!pop)}
