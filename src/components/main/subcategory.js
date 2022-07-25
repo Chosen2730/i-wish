@@ -1,6 +1,7 @@
 import { useState } from "react";
 import more from "../../images/more.png";
 import close from "../../images/close.png";
+import { useGlobalContext } from "../../context";
 
 const Subcategory = ({
   cat,
@@ -11,10 +12,17 @@ const Subcategory = ({
   setCategories,
   i,
 }) => {
+  const { setCatTitle, setPage } = useGlobalContext();
   const [pop, setPop] = useState(false);
   const [del, setDel] = useState(false);
   return (
-    <div className='relative w-full'>
+    <div
+      className='relative w-full'
+      onClick={() => {
+        setCatTitle(cat);
+        setPage(false);
+      }}
+    >
       <img src={img} className='w-full h-52 object-cover' alt='' />
       <h4 className='text-center capitalize font-semibold text-sm my-2'>
         {cat}

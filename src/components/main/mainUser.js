@@ -37,7 +37,7 @@ const MainUser = () => {
         <div className='flex space-x-6 items-center'>
           <img
             src={back}
-            className='w-6 cursor-pointer'
+            className='w-3 cursor-pointer'
             alt=''
             onClick={() => setPage(true)}
           />

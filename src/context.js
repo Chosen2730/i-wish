@@ -28,6 +28,7 @@ const AppProvider = ({ children }) => {
   const [allVendors, setAllVendors] = useState(vendors);
   const [page, setPage] = useState(true);
   const [delStatus, setDelStatus] = useState("");
+  const [catTitle, setCatTitle] = useState("");
 
   const [vendDetails, setVendDetails] = useState({});
   const [newStat, setNewStat] = useState("");
@@ -89,6 +90,8 @@ const AppProvider = ({ children }) => {
         setNewStat,
         delStatus,
         setDelStatus,
+        catTitle,
+        setCatTitle,
       }}
     >
       {children}

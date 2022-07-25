@@ -225,3 +225,18 @@ export const users = [
     vendorStatus: "active",
   },
 ];
+export const notify = [
+  { title: "Okocha funded his wallet", desc: "Okocha just funded his wallet" },
+  {
+    title: "An order has been made",
+    desc: "A user just ordered for sony playstation 5",
+  },
+  {
+    title: "A Vendor just joined",
+    desc: "New vendor has signed up, click here to view vendor details",
+  },
+  {
+    title: "Completion of Order",
+    desc: "An order has been sucessfully completed",
+  },
+];
