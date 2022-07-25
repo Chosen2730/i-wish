@@ -16,14 +16,16 @@ const Subcategory = ({
   const [pop, setPop] = useState(false);
   const [del, setDel] = useState(false);
   return (
-    <div
-      className='relative w-full'
-      onClick={() => {
-        setCatTitle(cat);
-        setPage(false);
-      }}
-    >
-      <img src={img} className='w-full h-52 object-cover' alt='' />
+    <div className='relative w-full'>
+      <img
+        src={img}
+        className='w-full h-52 object-cover'
+        alt=''
+        onClick={() => {
+          setCatTitle(cat);
+          setPage(false);
+        }}
+      />
       <h4 className='text-center capitalize font-semibold text-sm my-2'>
         {cat}
       </h4>
