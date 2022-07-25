@@ -1,13 +1,13 @@
 import React from "react";
-import logo from "../images/logo.png";
-import dash from "../images/Vector-5.png";
-import order from "../images/Vector-6.png";
-import cat from "../images/Vector-7.png";
-import not from "../images/Vector-8.png";
-import ven from "../images/Vector-9.png";
-import user from "../images/Vector-10.png";
-import truck from "../images/truck.png";
-import { useGlobalContext } from "../context";
+import logo from "../../images/logo.png";
+import dash from "../../images/Vector-5.png";
+import order from "../../images/Vector-6.png";
+import cat from "../../images/Vector-7.png";
+import not from "../../images/Vector-8.png";
+import ven from "../../images/Vector-9.png";
+import user from "../../images/Vector-10.png";
+import truck from "../../images/truck.png";
+import { useGlobalContext } from "../../context";
 // import { TbTruckDelivery } from "react-icons/tb";
 
 const sideMenus = [

@@ -92,26 +92,40 @@ const SingleUser = ({ name, email, tel, busName, id, vendorStatus }) => {
             Are you sure you want to {action} this vendor?
           </h1>
 
-          <button
-            className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-8 font-normal tracking-wider w-fit my-2 capitalize'
-            onClick={() => {
-              {
-                setModal(false);
-                if (action === "block") {
-                  setAction("unblock");
-                  setStat("blocked");
-                } else if (vendorStatus === "blocked") {
-                  setAction("unblock");
-                  setStat("inactive");
-                } else if (action === "unblock") {
-                  setAction("block");
-                  setStat(vendorStatus);
+          <div className='flex space-x-4 justify-center items-center'>
+            <button
+              className={`${
+                action === "block" ? "bg-red-500" : "bg-green-500"
+              }  text-white rounded-md text-sm md:text-base py-3 px-8 font-normal tracking-wider w-fit my-2 capitalize`}
+              onClick={() => {
+                {
+                  setModal(false);
+                  if (action === "block") {
+                    setAction("unblock");
+                    setStat("blocked");
+                  } else if (vendorStatus === "blocked") {
+                    setAction("unblock");
+                    setStat("inactive");
+                  } else if (action === "unblock") {
+                    setAction("block");
+                    setStat(vendorStatus);
+                  }
                 }
-              }
-            }}
-          >
-            {action}
-          </button>
+              }}
+            >
+              Yes
+            </button>
+            <button
+              className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-3 px-8 font-normal tracking-wider w-fit my-2 capitalize'
+              onClick={() => {
+                {
+                  setModal(false);
+                }
+              }}
+            >
+              No
+            </button>
+          </div>
         </div>
       </div>
     </div>

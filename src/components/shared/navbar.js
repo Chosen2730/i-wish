@@ -1,7 +1,7 @@
 import React from "react";
-import search from "../images/search.png";
+import search from "../../images/search.png";
 import { useNavigate } from "react-router-dom";
-import not from "../images/notify.png";
+import not from "../../images/notify.png";
 
 const Navbar = () => {
   const navigate = useNavigate();

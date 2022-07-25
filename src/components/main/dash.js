@@ -26,7 +26,7 @@ const Dash = () => {
                 June, 22 - July, 22 / Last 30 days
               </p>
               <img
-                className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
+                className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={cart}
                 alt=''
               />
@@ -40,7 +40,7 @@ const Dash = () => {
                 June, 22 - July, 22 / Last 30 days
               </p>
               <img
-                className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
+                className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={rev}
                 alt=''
               />
@@ -52,7 +52,7 @@ const Dash = () => {
                 June, 22 - July, 22 / Last 30 days
               </p>
               <img
-                className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
+                className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={del}
                 alt=''
               />
@@ -64,7 +64,7 @@ const Dash = () => {
                 June, 22 - July, 22 / Last 30 days
               </p>
               <img
-                className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
+                className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={vendor}
                 alt=''
               />
@@ -76,7 +76,7 @@ const Dash = () => {
                 June, 22 - July, 22 / Last 30 days
               </p>
               <img
-                className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
+                className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={user}
                 alt=''
               />

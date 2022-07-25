@@ -11,25 +11,11 @@ export const Delivery = () => {
         Order Panel
       </h1>
       <main className='grid lg:grid-cols-2 gap-4'>
-        {store.map((items) => {
-          const {
-            title,
-            img,
-            price,
-            weight,
-            qty,
-            color,
-            customer,
-            vendor,
-            address,
-            orderDate,
-            deliveryDate,
-            orderStatus,
-          } = items;
+        {store.map((items, i) => {
           {
             /* const statusImg = orderStatus === "delivered" ? green : yellow; */
           }
-          return <SingleDelOrder key={items.id} {...items} />;
+          return <SingleDelOrder key={i} {...items} />;
         })}
       </main>
     </div>

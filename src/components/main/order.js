@@ -20,7 +20,7 @@ const Dash = () => {
               <h2 className='text-base font-semibold'>Pending Orders</h2>
               <h1 className='text-[#FFCC00] text-2xl my-2 font-bold'>2000</h1>
               <img
-                className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
+                className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={ord}
                 alt=''
               />
@@ -29,7 +29,7 @@ const Dash = () => {
               <h2 className='text-base font-semibold'>Cancelled Orders</h2>
               <h1 className='text-gray-900 text-2xl my-2 font-bold'>100</h1>
               <img
-                className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
+                className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={rev}
                 alt=''
               />
@@ -38,7 +38,7 @@ const Dash = () => {
               <h2 className='text-base font-semibold'>Delivered Orders</h2>
               <h1 className='text-gray-900 text-2xl my-2 font-bold'>13000</h1>
               <img
-                className='absolute top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
+                className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={del}
                 alt=''
               />
