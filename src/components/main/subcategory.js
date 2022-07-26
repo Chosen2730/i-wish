@@ -43,7 +43,7 @@ const Subcategory = ({
         {pop && (
           <div className=''>
             <h4
-              className='my-4'
+              className='my-6'
               onClick={() => {
                 editCategory(id);
                 setPop(false);
@@ -53,7 +53,7 @@ const Subcategory = ({
             </h4>
 
             <h4
-              className='my-4'
+              className='my-6'
               onClick={() => {
                 {
                 }

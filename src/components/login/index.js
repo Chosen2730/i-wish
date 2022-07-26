@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Validation from "./validation";
 import Unauth from "./unauth";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
   const [page, setPage] = useState(1);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [pass, setPass] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (userName === "admin" && password === "admin123") {
@@ -43,14 +45,22 @@ const Login = () => {
               >
                 Password
               </label>
-              <input
-                className='block bg-gray-100 rounded-md p-2 py-4 text-sm mb-6 w-full'
-                placeholder='Password'
-                type='password'
-                id='password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className='relative'>
+                <input
+                  className='block bg-gray-100 rounded-md p-2 py-4 text-sm mb-6 w-full'
+                  placeholder='Password'
+                  type={`${pass ? "text" : "password"}`}
+                  id='password'
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <i
+                  className='text-2xl absolute top-3 right-6 text-gray-500'
+                  onClick={() => setPass(!pass)}
+                >
+                  {pass ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+                </i>
+              </div>
               <input
                 className='block bg-[#7805A7] rounded-md text-purple-100 py-4 my-4 text-sm md:text-xl w-full md:w-1/2 px-6 capitalize mx-auto'
                 type='submit'

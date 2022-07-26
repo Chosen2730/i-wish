@@ -21,7 +21,6 @@ const Category = () => {
   const [categories, setCategories] = useState(category);
   const [input, setInput] = useState("");
   const [catImg, setcatImg] = useState("");
-  const [alert, setAlert] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [editId, setEditId] = useState("");
 
@@ -31,7 +30,6 @@ const Category = () => {
   const imageHandler = (e) => {
     const [file] = e.target.files;
     setcatImg(URL.createObjectURL(file));
-    setAlert(true);
   };
   const addCat = (e) => {
     e.preventDefault();
@@ -48,7 +46,6 @@ const Category = () => {
       setCategories(newCategories);
     } else if (input && catImg) {
       categories.push({ cat: input, img: catImg });
-      setAlert(false);
     }
   };
 
@@ -101,7 +98,11 @@ const Category = () => {
                 className='bg-[#7805A7] p-2 ml-auto rounded-md'
                 src={close}
                 alt=''
-                onClick={() => setCatshow(false)}
+                onClick={() => {
+                  setCatshow(false);
+                  setInput("");
+                  setcatImg(null);
+                }}
               />
               <h1 className='text-center text-xl sm:text-2xl font-semibold my-3'>
                 {isEdit ? "Edit Category" : "New Category"}
@@ -125,7 +126,11 @@ const Category = () => {
                   </p>
                   <div className='bg-purple-300 m-2 p-4 rounded-md'>
                     <label htmlFor='image' className='cursor-pointer text-sm'>
-                      <img src={upload} className='mx-auto my-3' alt='' />
+                      <img
+                        src={catImg || upload}
+                        className='mx-auto my-3 w-10'
+                        alt=''
+                      />
                       <input
                         type='file'
                         placeholder='Browse to upload your file'
@@ -134,8 +139,8 @@ const Category = () => {
                         value={""}
                         onChange={imageHandler}
                       />
-                      Browse to upload your file
-                      {alert && <h4>Image uploaded</h4>}
+                      {!catImg && " Browse to upload your file"}
+                      {catImg && <h4>Image uploaded</h4>}
                     </label>
                   </div>
                 </div>
@@ -143,7 +148,7 @@ const Category = () => {
                   className='bg-[#7805A7] text-white rounded-md text-sm md:text-base py-4 px-8 font-normal tracking-wider w-full my-2'
                   onClick={addCat}
                 >
-                  {isEdit ? "Edit Category" : "Add Category"}
+                  {isEdit ? "Update Category" : "Add Category"}
                 </button>
               </form>
             </div>
