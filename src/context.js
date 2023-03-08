@@ -2,6 +2,7 @@ import { useContext, createContext, useState } from "react";
 import { store, notifications, vendors, users } from "./data";
 
 const AppContext = createContext();
+
 const AppProvider = ({ children }) => {
   const [items, setItems] = useState({
     title: "",
@@ -17,6 +18,7 @@ const AppProvider = ({ children }) => {
     orderDate: "",
     deliveryDate: "",
   });
+
   const [details, setDetails] = useState(false);
   const [base, setBase] = useState(0);
   const [notificationItems, setNotificationItems] = useState(notifications);
@@ -32,6 +34,7 @@ const AppProvider = ({ children }) => {
 
   const [vendDetails, setVendDetails] = useState({});
   const [newStat, setNewStat] = useState("");
+  const baseUrl = `https://iwish-api-alywu.ondigitalocean.app`;
 
   const edit = (id) => {
     const selectedItem = vendors.find((item) => item.id === id);
@@ -92,6 +95,7 @@ const AppProvider = ({ children }) => {
         setDelStatus,
         catTitle,
         setCatTitle,
+        baseUrl,
       }}
     >
       {children}

@@ -7,10 +7,42 @@ import red from "../../images/dotr.png";
 import Product from "./product";
 import { useGlobalContext } from "../../context";
 import Track from "./track";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Dash = () => {
-  const { store, items, setDetails, setItems, details, page, setPage } =
-    useGlobalContext();
+  const { store, setDetails, setItems, page, baseUrl } = useGlobalContext();
+
+  const token = localStorage.getItem("token");
+
+  const [orders, setOrders] = useState("");
+
+  const getOrders = async () => {
+    const url = `${baseUrl}/admin/orders`;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    try {
+      const res = await axios.get(url, config);
+      setOrders(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getOrders();
+  }, []);
+
+  const {
+    all_orders,
+    total_orders_cancelled,
+    total_orders_delivered,
+    total_orders_pending,
+  } = orders;
+
   return (
     <>
       {page && (
@@ -18,7 +50,9 @@ const Dash = () => {
           <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-3'>
             <div className='bg-[#080016] text-gray-100 sm:p-4 p-10 rounded-md relative'>
               <h2 className='text-base font-semibold'>Pending Orders</h2>
-              <h1 className='text-[#FFCC00] text-2xl my-2 font-bold'>2000</h1>
+              <h1 className='text-[#FFCC00] text-2xl my-2 font-bold'>
+                {total_orders_pending}
+              </h1>
               <img
                 className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={ord}
@@ -27,7 +61,9 @@ const Dash = () => {
             </div>
             <div className='bg-gray-200 text-gray-900 sm:p-4 p-10 rounded-md relative'>
               <h2 className='text-base font-semibold'>Cancelled Orders</h2>
-              <h1 className='text-gray-900 text-2xl my-2 font-bold'>100</h1>
+              <h1 className='text-gray-900 text-2xl my-2 font-bold'>
+                {total_orders_cancelled}
+              </h1>
               <img
                 className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={rev}
@@ -36,7 +72,9 @@ const Dash = () => {
             </div>
             <div className='bg-gray-200 text-gray-900 sm:p-4 p-10 rounded-md relative'>
               <h2 className='text-base font-semibold'>Delivered Orders</h2>
-              <h1 className='text-gray-900 text-2xl my-2 font-bold'>13000</h1>
+              <h1 className='text-gray-900 text-2xl my-2 font-bold'>
+                {total_orders_delivered}
+              </h1>
               <img
                 className='absolute w-10 top-8 sm:top-4 right-8 sm:right-4 bg-[#7805A7] p-2 rounded-md'
                 src={del}

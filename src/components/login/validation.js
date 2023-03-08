@@ -1,87 +1,82 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../../context";
 import otpImg from "../../images/otp.png";
+import { Spinner } from "react-activity";
+import { toast, ToastContainer } from "react-toastify";
+import OTP from "./OTP";
+import OTPInput from "otp-input-react";
+import { type } from "@testing-library/user-event/dist/type";
 
 const Validation = () => {
-  const OTPArray = new Array(5).fill("");
-  const [otp, setOtp] = useState(OTPArray);
-  const navigate = useNavigate();
-  const handleChange = (element, index) => {
-    if (isNaN(element.value)) return false;
-    setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]);
+  const { baseUrl } = useGlobalContext();
 
-    if (element.nextSibling) {
-      element.nextSibling.focus();
+  const [isLoading, setIsLoading] = useState(false);
+  const [OTP, setOTP] = useState("");
+  console.log(OTP);
+  const navigate = useNavigate();
+
+  const verify = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    const uuid = localStorage.getItem("uuid");
+    const url = `${baseUrl}/auth/verify`;
+    const data = { uuid, code: +OTP };
+    try {
+      setIsLoading(false);
+      const res = await axios.post(url, data);
+      console.log(res);
+      toast.success(res.data.message);
+      const token = res.data.data.token;
+      localStorage.setItem("token", token);
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 2000);
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+      toast.error(error.response.data.message);
     }
   };
+
   return (
     <div className='my-12 text-gray-900 px-6'>
+      <ToastContainer autoClose={3000} />
       <h1 className='text-3xl sm:text-5xl font-bold mt-24 text-center'>
         OTP Verification
       </h1>
       <div className='w-5/6 max-w-3xl sm:p-20 mx-auto'>
         <form
           className='flex flex-col items-center justify-center'
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={verify}
         >
-          <img src={otpImg} alt='' />
+          <img src={otpImg} className='w-52' alt='' />
           <p className='text-sm my-4 text-center'>
             Please, enter the 5 digit code sent to your email for verification.
             Open Email App
           </p>
-          <div className='grid grid-cols-5 gap-4'>
-            {OTPArray.map((cont, i) => {
-              return (
-                <input
-                  className='bg-gray-200 w-10 h-10 rounded-md text-center font-bold text-xl'
-                  type='number'
-                  inputMode='numeric'
-                  autoComplete='one-time-code'
-                  name=''
-                  id=''
-                  key={i}
-                  maxLength={1}
-                  onFocus={(e) => e.target.select()}
-                  onChange={(e) => handleChange(e.target, i)}
-                />
-              );
-            })}
 
-            {/* 
-            <input
-              className='bg-gray-200 w-10 h-10 rounded-md text-center font-bold text-xl'
-              type='text'
-              inputMode='numeric'
-              autoComplete='one-time-code'
-              name=''
-              id=''
-              maxLength={1}
-            />
-            <input
-              className='bg-gray-200 w-10 h-10 rounded-md text-center font-bold text-xl'
-              type='text'
-              inputMode='numeric'
-              autoComplete='one-time-code'
-              name=''
-              id=''
-              maxLength={1}
-            />
-            <input
-              className='bg-gray-200 w-10 h-10 rounded-md text-center font-bold text-xl'
-              type='text'
-              inputMode='numeric'
-              autoComplete='one-time-code'
-              name=''
-              id=''
-              maxLength={1}
-            /> */}
-          </div>
-          <input
+          <OTPInput
+            value={OTP}
+            onChange={setOTP}
+            autoFocus
+            OTPLength={5}
+            otpType='number'
+            disabled={false}
+            secure
+            inputStyles={{
+              margin: "2px",
+              backgroundColor: "#dddd",
+              fontSize: "2rem",
+            }}
+          />
+          <button
             className='block bg-[#7805A7] rounded-md text-purple-100  py-4 my-4 text-sm md:text-xl w-fit px-6 capitalize'
             type='submit'
-            value='Proceed to Dashboard'
-            onClick={() => navigate("/dashboard")}
-          />
+          >
+            {isLoading ? <Spinner /> : "Verify OTP"}
+          </button>
         </form>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import rev from "../../images/rev.png";
 import del from "../../images/del.png";
 import cart from "../../images/cart.png";
@@ -11,9 +11,36 @@ import { useGlobalContext } from "../../context";
 import green from "../../images/dotg.png";
 import red from "../../images/doty.png";
 import Track from "./track";
+import axios from "axios";
 
 const Dash = () => {
-  const { store, items, setDetails, setItems, page } = useGlobalContext();
+  const { store, setDetails, setItems, page, baseUrl } = useGlobalContext();
+  const token = localStorage.getItem("token");
+
+  const [dashboardIndex, setDashboardIndex] = useState("");
+
+  const getDashboardIndex = async () => {
+    const url = `${baseUrl}/admin/index`;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    try {
+      const res = await axios.get(url, config);
+      setDashboardIndex(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getDashboardIndex();
+  }, []);
+
+  const { orders, total_delivered, total_orders, total_revenue } =
+    dashboardIndex;
+
   return (
     <>
       {page && (
@@ -21,7 +48,9 @@ const Dash = () => {
           <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-8'>
             <div className='bg-[#080016] text-gray-100 sm:p-4 p-10 rounded-md relative'>
               <h2 className='text-base font-semibold'>Total Orders</h2>
-              <h1 className='text-[#FFCC00] text-2xl my-2 font-bold'>2000</h1>
+              <h1 className='text-[#FFCC00] text-2xl my-2 font-bold'>
+                {total_orders}
+              </h1>
               <p className='text-xs text-gray-400'>
                 June, 22 - July, 22 / Last 30 days
               </p>
@@ -34,7 +63,8 @@ const Dash = () => {
             <div className='bg-gray-200 text-gray-900 sm:p-4 p-10 rounded-md relative'>
               <h2 className='text-base font-semibold'>Total Revenues</h2>
               <h1 className='text-gray-900 text-2xl my-2 font-bold'>
-                <del>N</del>150000
+                <del>N</del>
+                {total_revenue}
               </h1>
               <p className='text-xs text-gray-700'>
                 June, 22 - July, 22 / Last 30 days
@@ -47,7 +77,9 @@ const Dash = () => {
             </div>
             <div className='bg-gray-200 text-gray-900 sm:p-4 p-10 rounded-md relative'>
               <h2 className='text-base font-semibold'>Total Deliveries</h2>
-              <h1 className='text-gray-900 text-2xl my-2 font-bold'>13000</h1>
+              <h1 className='text-gray-900 text-2xl my-2 font-bold'>
+                {total_delivered}
+              </h1>
               <p className='text-xs text-gray-700'>
                 June, 22 - July, 22 / Last 30 days
               </p>

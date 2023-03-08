@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import phone from "../../images/phone.png";
 import shoe from "../../images/shoe.png";
 import clothing from "../../images/clothing.png";
@@ -8,10 +8,38 @@ import close from "../../images/close.png";
 import upload from "../../images/upload.png";
 import { useGlobalContext } from "../../context";
 import TargetCategory from "./targetCategory";
+import axios from "axios";
 
 const Category = () => {
   const [catshow, setCatshow] = useState(false);
-  const { page, setPage } = useGlobalContext();
+  const { page, setPage, baseUrl } = useGlobalContext();
+
+  const token = localStorage.getItem("token");
+
+  const [allCategory, setAllCategory] = useState("");
+
+  const getAllCatgories = async () => {
+    const url = `${baseUrl}/admin/categories`;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    try {
+      const res = await axios.get(url, config);
+      setAllCategory(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllCatgories();
+  }, []);
+
+  const { all_categories } = allCategory;
+  console.log(allCategory);
+
   const category = [
     { cat: `clothing`, img: clothing, id: 1 },
     { cat: `gadgets`, img: phone, id: 2 },
@@ -62,7 +90,7 @@ const Category = () => {
     <>
       {page && (
         <div className='m-8 text-gray-800'>
-          <div className='flex flex-col sm:flex-row justify-between '>
+          <div className='flex flex-col sm:flex-row justify-between items-center'>
             <h1 className='font-semibold text-xl  sm:text-2xl'>
               Product Categories
             </h1>
